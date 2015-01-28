@@ -1,5 +1,5 @@
+ 
 $(document).ready(function() {
-
   var top=$(window).scrollTop();
   mi_start=$('.mi_start');
   mi_calendar=$('.mi_calendar');
