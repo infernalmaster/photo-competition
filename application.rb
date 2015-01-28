@@ -19,5 +19,15 @@ end
 
 # root page
 get '/' do
+  @photos = Photo.all
   haml :root
+end
+
+
+post '/upload' do
+
+  upload = Photo.new
+  upload.file = params[:image]
+  upload.save
+  redirect "/", 303
 end

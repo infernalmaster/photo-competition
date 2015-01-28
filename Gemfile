@@ -9,7 +9,9 @@ gem 'dm-validations'
 gem 'dm-aggregates'
 gem 'dm-migrations'
 gem 'haml'
-
+gem 'carrierwave'
+gem 'carrierwave-datamapper'
+gem 'rmagick'
 group :test do
   gem 'rspec', :require => 'spec'
   gem 'rack-test'

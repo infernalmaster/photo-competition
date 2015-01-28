@@ -1,7 +1,14 @@
+- @photos.each do |photo|
+  %div= photo.file
+%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
+  %p
+    %input{:name => "image", :type => "file"}
+  %input{:type => "submit", :value => "Take Note!"}
+
 .wrapper_menu
   .menu
     .logo
-      %img{:alt => "", :src => "/images/logo.png"}
+      %img{:alt => "logo", :src => "/images/logo.png"}
     %nav
       %ul
         %li.mi_start.active
@@ -79,7 +86,8 @@
             підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
             Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
 
-            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути        .forward
+            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
+    .forward
       %span Я ПОГОДЖУЮСЬ З УМОВАМИ,Продовжити
   .form
     %p ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
