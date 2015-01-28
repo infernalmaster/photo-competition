@@ -1,4 +1,336 @@
-%h2 Main Page
-%p Here is some text.
-%p Here is a <a href='/'>link</a>.
-%p ttys!
+.wrapper_menu
+  .menu
+    .logo
+      %img{:alt => "", :src => "/images/logo.png"}/
+    %nav
+      %ul
+        %li.mi_start.active
+          %span Старт
+        %li.mi_calendar
+          %span Календар виставки
+        %li.mi_awards
+          %span Нагороди
+        %li.mi_partners
+          %span Партнери
+        %li.mi_jury
+          %span Журі
+.stub
+.slide
+  .slide_text
+    %h1 ФОТОПОРТРЕТ
+    %h4 П’ята бієнале імені Степана НАЗАРЕНКА
+    %h4
+      Фотопортрет — національний конкурс в жанрі фотопортретистики, що проходить в режимі бієнале.
+      Мета конкурсу — продовження та розвиток
+      кращих традицій української портретної фотографії
+.dd_takepart
+  #dd_button
+    %h2 Взяти учать
+#dd_takepart_content.wrapper
+  .steps
+    %ul
+      %li.step_terms.active
+        %span Умови конкурсу
+      %li
+        %img{:alt => "", :src => "/images/steparrow.png"}/
+      %li
+        %span Анкета
+      %li
+        %img{:alt => "", :src => "/images/steparrow.png"}/
+      %li
+        %span Завантаження фото
+      %li
+        %img{:alt => "", :src => "/images/steparrow.png"}/
+      %li
+        %span Оплата
+  .terms
+    .termslist
+      %textarea{:id => "", :readonly => "readonly"}
+        :preserve
+
+            1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
+            2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
+            3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
+            4. Конкурс проводитиметься в два етапи:
+
+                             роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
+                              Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
+                              розміром 15х20 см, які використовуватимуться в ході роботи журі.
+                              після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
+                              об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
+
+            5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
+            підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
+            Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
+
+            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
+            1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
+            2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
+            3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
+            4. Конкурс проводитиметься в два етапи:
+
+                             роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
+                              Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
+                              розміром 15х20 см, які використовуватимуться в ході роботи журі.
+                              після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
+                              об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
+
+            5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
+            підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
+            Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
+
+            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути        .forward
+      %span Я ПОГОДЖУЮСЬ З УМОВАМИ,Продовжити
+  .form
+    %p ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+    .inputfield
+      %span Ім’я
+      %input{:type => "text"}/
+    .inputfield
+      %span Прізвище
+      %input{:type => "text"}/
+    .inputfield
+      %span Адреса
+      %input{:type => "text"}/
+    .inputfield
+      %span Телефон
+      %input{:type => "text"}/
+    .inputfield
+      %span E-mail
+      %input{:type => "text"}/
+    %p ДОДАТКОВО
+    .inputfield
+      %span Веб сайт
+      %input{:type => "text"}/
+    .inputfield
+      %span Приналежність до фотооб’єднання
+      %input{:type => "text"}/
+    .inputfield
+      %span Посада
+      %input{:type => "text"}/
+    .back
+      %span Назад
+    .forward
+      %span Продовжити
+  .upload
+    .uploadwrap
+      %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
+      .uploadform
+        .prewiev
+          %img{:alt => "", :src => "/images/upload.png"}/
+          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+        .inputfield
+          %span Назва
+          %input{:type => "text"}/
+      .uploadform
+        .prewiev
+          %img{:alt => "", :src => "/images/upload.png"}/
+          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+        .inputfield
+          %span Назва
+          %input{:type => "text"}/
+      .uploadform
+        .prewiev
+          %img{:alt => "", :src => "/images/upload.png"}/
+          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+        .inputfield
+          %span Назва
+          %input{:type => "text"}/
+      .uploadform
+        .prewiev
+          %img{:alt => "", :src => "/images/upload.png"}/
+          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+        .inputfield
+          %span Назва
+          %input{:type => "text"}/
+      .uploadform
+        .prewiev
+          %img{:alt => "", :src => "/images/upload.png"}/
+          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+        .inputfield
+          %span Назва
+          %input{:type => "text"}/
+    .clear
+    .back
+      %span Назад
+    .forward
+      %span Продовжити
+  .done.wrapper
+    %img{:alt => "done", :src => "/images/done.png"}/
+    %p Вітаємо!
+    %br/
+    %span
+      Ваші роботи успішно завантажені.
+      = succeed "\u{41c}\u{438}" do
+        %br/
+    .close
+      %span Закрити
+.calendar
+  %img{:alt => "", :blur => "", :src => "/images/bgblur.png"}/
+  .events
+    %h3 Календар виставки
+    %ul
+      %li
+        %span 29 березня
+        %h4 Остання дата прийому робіт
+      %li
+        %span 03­04 квітня
+        %h4 Робота журі
+      %li
+        %span Квітень
+        %h4 Повідомлення рішення журі
+      %li
+        %span 08 травня
+        %h4 Відкриття виставки, церемонія нагородження
+      %li
+        %span 08 травня – 17 травня
+        %h4 Експозиція
+.awards.wrapper
+  %h3 Нагороди
+  .award
+    %a{:href => "http://www.prophoto.ua/products/tripod/pro/1343/"}
+      %img{:alt => "", :src => "/images/aw_1.jpg"}/
+    %p Штатив професійний SLIK Able 300 DX
+  .award
+    %a{:href => "http://www.prophoto.ua/products/278/1391/?rp=9 "}
+      %img{:alt => "", :src => "/images/aw_2.jpg"}/
+    %p Відбивач круглий LASTOLITE  Bottletops 5in1 50см (2096) (x2)
+  .award
+    %a{:href => "http://www.prophoto.ua/products/305/310/1799/?rp=4  "}
+      %img{:alt => "", :src => "/images/aw_4.jpg"}/
+    %p Зарядний пристрій HAHNEL Ventra Synergy AA 2500 (x2)
+  .award
+    %a{:href => "http://strobist.ua/pulty/jjc-ir-u1.html"}
+      %img{:alt => "", :src => "/images/aw_5.jpg"}/
+    %p Універсальний інфрачервоний пульт JJC IR-U1
+  .award
+    %a{:href => "http://strobist.ua/drugie/phottix-edge-2.0.html"}
+      %img{:alt => "", :src => "/images/aw_6.jpg"}/
+    %p Картрідер Phottix Edge 2.0
+  .award
+    %a{:href => "http://strobist.ua/remni/universalnyjj-kistevojj-remen-dlja-nikon-canon-sony-pentax-i-drugikh-fotoapparatov.html"}
+      %img{:alt => "", :src => "/images/aw_7.jpg"}/
+    %p Універсальний кистєвий ремінь
+  .award
+    %a{:href => "http://strobist.ua/rasseivateli/rasseivatel-jyc-fr-01.html"}
+      %img{:alt => "", :src => "/images/aw_8.jpg"}/
+    %p Розсіювач для бліца JYC FR-01
+.sponsors.wrapper
+  %h3 Спонсори
+  %a{:href => "#"}
+    %img{:alt => "tamron", :src => "/images/tamron.png"}/
+  %a{:href => "#"}
+    %img{:alt => "prophoto", :src => "/images/prophoto.png"}/
+  %a{:href => "#"}
+    %img{:alt => "manfrotto", :src => "/images/manfrotto.png"}/
+  %a{:href => "#"}
+    %img{:alt => "strobist", :src => "/images/strobist.png"}/
+.partners.wrapper
+  %h3 Партнери
+  .partnerlist
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "saychesee", :src => "/images/saychesee.png"}/
+        %p.fix В рамках східного партнерства
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "nsfhu", :src => "/images/nsfhu.png"}/
+        %p Патронат НСФХУ 02/2015
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "isf", :src => "/images/isf.png"}/
+        %p Label ISF 126/2015
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "colunb", :src => "/images/colunb.png"}/
+        %p Фотоклуб Колумб
+    %br/
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "ukrinform", :src => "/images/ukrinform.png"}/
+      %p Інформаційна підтримка
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "altera", :src => "/images/altera.png"}/
+      %p Медіапартнер
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "den", :src => "/images/den.png"}/
+      %p СПЕЦІАЛЬНИЙ ПАРТНЕР
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "foroafisha", :src => "/images/fotoafisha.png"}/
+      %p Інформаційна підтримка
+    %br/
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "photographer", :src => "/images/photographer.png"}/
+      %p Інформаційна підтримка
+    .partner
+      .partnerlogo
+        %a{:href => "#"}
+          %img{:alt => "je", :src => "/images/je.png"}/
+      %p
+.jury
+  .jury_wrap
+    %h3 Журі
+    .prev
+    .next
+    .slider
+      .member
+        %img{:alt => "jury_vysheslavskyj", :src => "/images/jury_vysheslavskyj.png"}/
+        %p
+          Гліб ВИШЕСЛАВСЬКИЙ
+          %br/
+          %span Мистецтвознавець, ­ Київ
+      .member
+        %img{:alt => "jury_gaidai", :src => "/images/jury_gaidai.png"}/
+        %p
+          Ігор ГАЙДАЙ
+          %br/
+          %span Фотограф,«Гайдай студіо», Київ
+      .member
+        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}/
+        %p
+          Тарас ПЕРУН
+          %br/
+          %span НСФХУ ­,Чернівці
+      .member
+        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}/
+        %p
+          Ростислав Кондрат
+          %br/
+          %span Посада
+      .member
+        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}/
+        %p
+          Андрій Назаренко
+          %br/
+          %span Посада
+    .identificators
+      .ident.current
+      .ident
+%footer.wrapper
+  %a{:href => "#"}
+    %img{:alt => "fb_logo", :src => "/images/fb_logo.png"}/
+  .adress
+    %p
+      Івано­-Франківська обласна організація
+      Національної спілки фотохудожників України
+      %br/
+      (НСФХУ)
+      %br/
+      а/с 2, 76018 Івано-Франківськ
+  %p +38(0342)74.03.78
+  %p portrait.if@gmail.com
+  .copyright
+    %p ©2015
