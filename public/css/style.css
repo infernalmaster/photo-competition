@@ -1,4 +1,6 @@
-
+body {
+    position: relative;
+}
 h1{
 	font-family: 'Roboto Slab',sans-serif;
 	font-size: 100px;
@@ -28,86 +30,117 @@ h4{
 
 }
 
-
-
-.wrapper_menu{
-	width: 100%;	
-	margin: 0 auto;
-	z-index: 3;
-	position: fixed;
-	background: white;
-	}
-
 .wrapper{
-	position: relative;
-	width: 960px;
-	margin: 0 auto;
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
 }
 
-.menu{
-	width: 960px;
-	margin: 0 auto;
-	height: 120px;
+
+
+
+.wrapper_menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background: white;
 }
 
-.logo{
-	float: left;
-	padding-top: 20px;
-	padding-left: 20px;
-}
+    .menu {
+        width: 960px;
+        margin: 0 auto;
+    }
 
-nav {
-	padding: 45px 200px 0 130px;
-}
+        .logo {
+            float: left;
+            padding: 20px;
+        }
+            .logo img {
+                width: 80px;
+                height: 80px;
+            }
 
-nav li{
-	display: inline;
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight: 700;
-	font-size: 14px;
-	color: #666666;
-	padding: 0 5px 12px 5px;
-	margin: 0 20px 0 20px;
-	text-transform: uppercase;
-	
-}
+        nav {
+            padding: 45px 200px 0 130px;
+        }
+            nav li {
+                display: inline;
+                font-family: 'Roboto Condensed', sans-serif;
+                font-weight: 700;
+                font-size: 14px;
+                padding: 0 5px 12px 5px;
+                margin: 0 20px 0 20px;
+                text-transform: uppercase;
+            }
+            nav li a {
+                color: #666666;
+                text-decoration: none;
+            }
 
-nav li:hover{
-	color: #8f7726;
-	cursor: pointer;
-}
+            nav li:hover a {
+                color: #8f7726;
+                cursor: pointer;
+            }
 
-.stub{
-	height: 120px;
-	width: 100%;
-	position: relative;
+            nav li.active {
+                border-bottom: 2px solid #8f7726;
+            }
+            nav li.active a {
+                color: #8f7726;
+            }
+
+.dropshadow {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+    .dropshadow nav {
+        padding-top: 20px;
+    }
+    .dropshadow .logo {
+        padding: 10px;
+    }
+    .dropshadow img {
+        width: 40px;
+        height: 40px;
+    }
+
+.menu-transition {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .slide{
+    padding-top: 120px;
 	clear: both;
-	background: url(/images/slide_bg.jpg);
 	position: relative;
-	background-size: cover;
 	height: 70%;
+}
+    .slide__bg{
+        width: 100%;
+        height: 100%;
+        background: url('/images/slide_bg.jpg');
+        background-size: cover;
+    }
 
-}
+    .slide_text{
+        position: relative;
+        float: right;
+        width: 60%;
+        margin-right: 10%;
+        margin-top: 5%;
+    }
+        .slide_text h1{
+            font-size: 5em;
+        }
+            .slide_text h1,.slide_text h2,.slide_text h4{
+                text-align: right;
+                float: right;
+                padding-top: 20px;
+            }
 
-.slide_text{
-	position: relative;
-	float: right;
-	width: 60%;
-	margin-right: 10%;
-	margin-top: 5%;
-}
-.slide_text h1{
-	font-size: 5em;
-}
-
-.slide_text h1,.slide_text h2,.slide_text h4{
-	text-align: right;
-	float: right;
-	padding-top: 20px;
-}
 
 #dd_button{
 
@@ -357,60 +390,61 @@ input[type="text"]:focus{
 	position: relative;
 	top: 17px;
 }
-.calendar{
 
-	
+.error{
+    position:relative;
+    width:400px;
+    text-align: left;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: red;
+    top: -40px;
+    left: 400px;
+}
+
+
+.calendar {
 	background: url(/images/pattern.png) repeat repeat;
 }
-.calendar img{
-	position: absolute;
-	width: 50%;
-	left:30%;
-	opacity: 0.6;
-}
-.error{
-	position:relative;
-	width:400px;
-	text-align: left;
-	font-family: 'Roboto',sans-serif;
-	font-weight: 700;
-	font-size: 14px;
-	color: red;
-	top: -40px;
-	left: 400px;
-}
-.events{
-	
+    .calendar img {
+        position: absolute;
+        width: 50%;
+        left:30%;
+        opacity: 0.6;
+    }
 
-	margin: 0 auto 0 auto;
-	height: 80%;
+    .events {
+        margin: 0 auto;
+        width: 680px;
+        text-align: center;
+        padding: 20% 0;
+    }
+        .events span {
+            position: relative;
+            font-family: 'Roboto',sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            color: #ffffff;
+            top:6px;
 
-	width: 680px;
-	text-align: center;
-	padding: 20% 0 20% 0  ;
-	
-}
-.events span{
-	position: relative;
-	font-family: 'Roboto',sans-serif;
-	font-weight: 300;
-	font-size: 18px;
-	color: #ffffff;
-	top:6px;
+        }
+            .events h3 {
+                padding-top: 20px;
+            }
+            .events li {
+                margin-top:30px;
+            }
 
-}
-.events li{
-	margin-top:30px;
-}
-.events h3{
-	padding-top: 20px;
-}
+
+
+
 .awards h3,.sponsors h3,.partners h3 {
 	color: #5e5222;
 	position: relative;
 	margin: auto;
 	width: 200px;
-	padding-top: 80px;
+	padding-top: 100px;
 	padding-bottom: 20px;
 	text-transform: uppercase;
 }
@@ -588,13 +622,8 @@ position: relative;
 top:-85px;
 padding-right: 20px;
 }
-.active{
-	color: #8f7726; 
-	border-bottom: 2px solid #8f7726;
-}
-.dropshadow{
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
+
+
 .award{
 	float: left;
 	position: relative;

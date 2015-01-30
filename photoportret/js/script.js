@@ -1,4 +1,4 @@
- 
+
 $(document).ready(function() {
   var top=$(window).scrollTop();
   mi_start=$('.mi_start');
@@ -6,39 +6,39 @@ $(document).ready(function() {
   mi_awards=$('.mi_awards');
   mi_partners=$('.mi_partners');
   mi_jury=$('.mi_jury');
- 
+
   //main menu scrolling
   //hilighting
   $('nav li').each(function() {
    $(this).click(function() {
       $(this).addClass('active').siblings().removeClass('active');
     });
-    
- }); 
+
+ });
 //scrolling
   mi_start.click(function() {
-       $(document).scrollTop(0);       
+       $(document).scrollTop(0);
  });
   mi_calendar.click(function() {
-       $(document).scrollTop($('.calendar').position().top-119);       
+       $(document).scrollTop($('.calendar').position().top-119);
  });
   mi_awards.click(function() {
-       $(document).scrollTop($('.awards').position().top-119);       
+       $(document).scrollTop($('.awards').position().top-119);
  });
   mi_partners.click(function() {
-       $(document).scrollTop($('.sponsors').position().top-119);       
+       $(document).scrollTop($('.sponsors').position().top-119);
  });
 
  mi_jury.click(function() {
-       $(document).scrollTop($('.jury').position().top-119);  
+       $(document).scrollTop($('.jury').position().top-119);
 
  });
 
 $('.prev').hide();
- 
+
  var nextslide= function () {
    $('.next').hide('0', function() {
-    $('.prev').show('0', function() {      
+    $('.prev').show('0', function() {
     });
   });
    if(!$('.slider').is(':animated')){
@@ -51,9 +51,9 @@ $('.prev').hide();
 
 var previousslide=function () {
   $('.prev').hide('0', function() {
-    $('.next').show('0', function() {      
+    $('.next').show('0', function() {
     });
-    
+
   });
    if(!$('.slider').is(':animated')){
     $('.slider').animate(
@@ -61,7 +61,7 @@ var previousslide=function () {
     $('.current').removeClass('current');
     $('.ident').eq(0).addClass('current');
   }
-  
+
 }
 
 $('.prev').click(previousslide);
@@ -90,7 +90,7 @@ $('#dd_button').click(
 
     }
       else{
-        close_dd();      
+        close_dd();
       }
   }
 
@@ -105,13 +105,13 @@ $('.close').click(function(event) {
 
 //fwd&bck btns
 $('.forward').click(function(event) {
-   
+
 
   $(this).parent().css('display', 'none');
   $(this).parent().next().css('display', 'block');
   $('.steps').find('.active').removeClass('active').next().next().addClass('active');
   $(document).scrollTop($('#dd_button').position().top);
- 
+
 
   }
 );
@@ -122,7 +122,7 @@ $('.back').click(function(event) {
   $(document).scrollTop($('#dd_button').position().top);
 
 });
-   
+
  });
 
 
@@ -133,11 +133,11 @@ $(window).scroll(function() {
   mi_awards=$('.mi_awards');
   mi_partners=$('.mi_partners');
   mi_jury=$('.mi_jury');
- 
+
   //shadow menu
   if (top>50) {
         $('.wrapper_menu').addClass('dropshadow');
-      } 
+      }
 
       else{
         $('.wrapper_menu').removeClass('dropshadow')

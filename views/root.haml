@@ -1,51 +1,55 @@
-%h2 html5 upload
-%form#form1{:action => "Upload.aspx", :enctype => "multipart/form-data", :method => "post"}
-  .row
-    %label{:for => "fileToUpload"} Select a File to Upload
-    %br/
-    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", :type => "file"}/
-  #fileName
-  #fileSize
-  #fileType
-  .row
-    %input{:onclick => "uploadFile()", :type => "button", :value => "Upload"}/
-  #progressNumber
+-#%h2 html5 upload
+-#%form#form1{:action => "Upload.aspx", :enctype => "multipart/form-data", :method => "post"}
+-#  .row
+-#    %label{:for => "fileToUpload"} Select a File to Upload
+-#    %br/
+-#    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", :type => "file"}/
+-#  #fileName
+-#  #fileSize
+-#  #fileType
+-#  .row
+-#    %input{:onclick => "uploadFile()", :type => "button", :value => "Upload"}/
+-#  #progressNumber
+-#
+-#
+-#
+-#- @photos.each do |photo|
+-#  %div= photo.file
+-#%h2 form upload
+-#%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
+-#  %p
+-#    %input{:name => "image", :type => "file"}
+-#  %input{:type => "submit", :value => "Take Note!"}
 
 
-
-- @photos.each do |photo|
-  %div= photo.file
-%h2 form upload
-%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
-  %p
-    %input{:name => "image", :type => "file"}
-  %input{:type => "submit", :value => "Take Note!"}
-
+-# menu
 .wrapper_menu
   .menu
-    .logo
-      %img{:alt => "logo", :src => "/images/logo.png"}
-    %nav
-      %ul
-        %li.mi_start.active
-          %span Старт
-        %li.mi_calendar
-          %span Календар виставки
-        %li.mi_awards
-          %span Нагороди
-        %li.mi_partners
-          %span Партнери
-        %li.mi_jury
-          %span Журі
-.stub
-.slide
-  .slide_text
-    %h1 ФОТОПОРТРЕТ
-    %h4 П’ята бієнале імені Степана НАЗАРЕНКА
-    %h4
-      Фотопортрет — національний конкурс в жанрі фотопортретистики, що проходить в режимі бієнале.
-      Мета конкурсу — продовження та розвиток
-      кращих традицій української портретної фотографії
+    .logo.menu-transition
+      %img.menu-transition{:alt => "logo", :src => "/images/logo.png"}
+    %nav.menu-transition.js-main-nav
+      %ul.nav
+        %li.active
+          %a(href='#start') Старт
+        %li
+          %a(href='#calendar') Календар виставки
+        %li
+          %a(href='#awards') Нагороди
+        %li
+          %a(href='#partners') Партнери
+        %li
+          %a(href='#jury') Журі
+
+
+.slide#start
+  .slide__bg
+    .slide_text
+      %h1 ФОТОПОРТРЕТ
+      %h4 П’ята бієнале імені Степана НАЗАРЕНКА
+      %h4
+        Фотопортрет — національний конкурс в жанрі фотопортретистики, що проходить в режимі бієнале.
+        Мета конкурсу — продовження та розвиток
+        кращих традицій української портретної фотографії
 .dd_takepart
   #dd_button
     %h2 Взяти учать
@@ -189,7 +193,10 @@
         %br/
     .close
       %span Закрити
-.calendar
+
+
+-#      calendar
+.calendar#calendar
   %img{:alt => "", :blur => "", :src => "/images/bgblur.png"}
   .events
     %h3 Календар виставки
@@ -209,7 +216,10 @@
       %li
         %span 08 травня – 17 травня
         %h4 Експозиція
-.awards.wrapper
+
+
+-#        awards
+.awards.wrapper#awards
   %h3 Нагороди
   .award
     %a{:href => "http://www.prophoto.ua/products/tripod/pro/1343/"}
@@ -239,7 +249,10 @@
     %a{:href => "http://strobist.ua/rasseivateli/rasseivatel-jyc-fr-01.html"}
       %img{:alt => "", :src => "/images/aw_8.jpg"}/
     %p Розсіювач для бліца JYC FR-01
-.sponsors.wrapper
+
+
+-#    sponsors
+.sponsors.wrapper#partners
   %h3 Спонсори
   %a{:href => "#"}
     %img{:alt => "tamron", :src => "/images/tamron.png"}/
@@ -304,7 +317,9 @@
         %a{:href => "#"}
           %img{:alt => "je", :src => "/images/je.png"}
       %p
-.jury
+
+-#        jury
+.jury#jury
   .jury_wrap
     %h3 Журі
     .prev
@@ -343,6 +358,8 @@
     .identificators
       .ident.current
       .ident
+
+
 %footer.wrapper
   %a{:href => "#"}
     %img{:alt => "fb_logo", :src => "/images/fb_logo.png"}

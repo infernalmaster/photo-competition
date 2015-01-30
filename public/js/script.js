@@ -1,38 +1,32 @@
 $(document).ready(function () {
 
-    var top = $(window).scrollTop();
-    mi_start = $('.mi_start');
-    mi_calendar = $('.mi_calendar');
-    mi_awards = $('.mi_awards');
-    mi_partners = $('.mi_partners');
-    mi_jury = $('.mi_jury');
-
-    //main menu scrolling
-    //hilighting
-    $('nav li').each(function () {
-        $(this).click(function () {
-            $(this).addClass('active').siblings().removeClass('active');
+    // top menu
+    $('body').scrollspy({ target: '.js-main-nav' });
+    $(".js-main-nav a").on('click', function(e) {
+        e.preventDefault();
+        var hash = this.hash;
+        // animate
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 300, function(){
+            window.location.hash = hash;
         });
-
-    });
-    //scrolling
-    mi_start.click(function () {
-        $(document).scrollTop(0);
-    });
-    mi_calendar.click(function () {
-        $(document).scrollTop($('.calendar').position().top - 119);
-    });
-    mi_awards.click(function () {
-        $(document).scrollTop($('.awards').position().top - 119);
-    });
-    mi_partners.click(function () {
-        $(document).scrollTop($('.sponsors').position().top - 119);
     });
 
-    mi_jury.click(function () {
-        $(document).scrollTop($('.jury').position().top - 119);
 
+    $window = $(window);
+    $menu = $('.wrapper_menu');
+    $(window).scroll(function () {
+        var top = $window.scrollTop();
+        //shadow menu
+        if (top > 50) {
+            $menu.addClass('dropshadow');
+        } else {
+            $menu.removeClass('dropshadow')
+        }
     });
+
+
 
     $('.prev').hide();
 
@@ -129,7 +123,7 @@ $(document).ready(function () {
 
 
 
-
+    // fileupload
     window.fileSelected = function() {
         var file = document.getElementById('fileToUpload').files[0];
         if (file) {
@@ -146,8 +140,6 @@ $(document).ready(function () {
     }
 
 
-
-    // fileupload
     window.uploadFile = function () {
         var fd = new FormData();
         fd.append("image", document.getElementById('fileToUpload').files[0]);
@@ -182,42 +174,4 @@ $(document).ready(function () {
     function uploadCanceled(evt) {
         alert("The upload has been canceled by the user or the browser dropped the connection.");
     }
-});
-
-
-$(window).scroll(function () {
-    var top = $(window).scrollTop();
-    mi_start = $('.mi_start');
-    mi_calendar = $('.mi_calendar');
-    mi_awards = $('.mi_awards');
-    mi_partners = $('.mi_partners');
-    mi_jury = $('.mi_jury');
-
-    //shadow menu
-    if (top > 50) {
-        $('.wrapper_menu').addClass('dropshadow');
-    }
-
-    else {
-        $('.wrapper_menu').removeClass('dropshadow')
-    }
-    ;
-    //hlight on scroll
-    if (top < $('.calendar').position().top - 120) {
-        mi_start.siblings().removeClass('active');
-        mi_start.addClass('active');
-    } else if (top > $('.calendar').position().top + 10 && top < $('.awards').position().top - 120) {
-        mi_calendar.siblings().removeClass('active');
-        mi_calendar.addClass('active');
-    } else if (top > $('.awards').position().top - 10 && top < $('.sponsors').position().top - 120) {
-        mi_awards.siblings().removeClass('active');
-        mi_awards.addClass('active');
-    } else if (top > $('.sponsors').position().top - 10 && top < $('.partners').position().top - 120) {
-        mi_partners.siblings().removeClass('active');
-        mi_partners.addClass('active');
-    } else if (top > $('.partners').position().top + 400) {
-        mi_jury.siblings().removeClass('active');
-        mi_jury.addClass('active');
-    }
-    //
 });
