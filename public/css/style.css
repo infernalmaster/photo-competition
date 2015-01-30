@@ -454,6 +454,9 @@ input[type="text"]:focus{
 .sponsors img{
     margin: 20px 30px 10px 29px;
 }
+.sponsors a, .awards a, .partnerlogo a {
+    text-decoration: none;
+}
 
 
 .partner p{
