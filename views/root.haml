@@ -3,12 +3,12 @@
   .row
     %label{:for => "fileToUpload"} Select a File to Upload
     %br/
-    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", :type => "file"}/
+    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", type: "file"}/
   #fileName
   #fileSize
   #fileType
   .row
-    %input{:onclick => "uploadFile()", :type => "button", :value => "Upload"}/
+    %input{:onclick => "uploadFile()", type: "button", :value => "Upload"}/
   #progressNumber
 
 
@@ -18,8 +18,8 @@
 %h2 form upload
 %form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
   %p
-    %input{:name => "image", :type => "file"}
-  %input{:type => "submit", :value => "Take Note!"}
+    %input{:name => "image", type: "file"}
+  %input{type: "submit", :value => "Take Note!"}
 
 .wrapper_menu
   .menu
@@ -55,20 +55,20 @@
       %li.step_terms.active
         %span Умови конкурсу
       %li
-        %img{:alt => "", :src => "/images/steparrow.png"}
+        %img{alt: "", src: "/images/steparrow.png"}
       %li
         %span Анкета
       %li
-        %img{:alt => "", :src => "/images/steparrow.png"}
+        %img{alt: "", src: "/images/steparrow.png"}
       %li
         %span Завантаження фото
       %li
-        %img{:alt => "", :src => "/images/steparrow.png"}
+        %img{alt: "", src: "/images/steparrow.png"}
       %li
         %span Оплата
   .terms
     .termslist
-      %textarea{:id => "", :readonly => "readonly"}
+      %textarea{readonly: "readonly"}
         :preserve
 
             1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
@@ -106,81 +106,85 @@
     .forward
       %span Я ПОГОДЖУЮСЬ З УМОВАМИ,Продовжити
   .form
-    %p ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
-    .inputfield
-      %span Ім’я
-      %input{:type => "text"}
-    .inputfield
-      %span Прізвище
-      %input{:type => "text"}
-    .inputfield
-      %span Адреса
-      %input{:type => "text"}
-    .inputfield
-      %span Телефон
-      %input{:type => "text"}
-    .inputfield
-      %span E-mail
-      %input{:type => "text"}
-    %p ДОДАТКОВО
-    .inputfield
-      %span Веб сайт
-      %input{:type => "text"}
-    .inputfield
-      %span Приналежність до фотооб’єднання
-      %input{:type => "text"}
-    .inputfield
-      %span Посада
-      %input{:type => "text"}
-    .back
-      %span Назад
-    .forward
-      %span Продовжити
+    %form{action: '/submit', method: 'post'}
+      %p ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+      .inputfield
+        %span Ім’я
+        %input{type: "text", name: "name"}
+      .inputfield
+        %span Прізвище
+        %input{type: "text", name: "surname"}
+      .inputfield
+        %span Адреса
+        %input{type: "text", name: "adress"}
+      .inputfield
+        %span Телефон
+        %input{type: "text", name: "phone"}
+      .inputfield
+        %span E-mail
+        %input{type: "text", name: "email"}
+      %p ДОДАТКОВО
+      .inputfield
+        %span Веб сайт
+        %input{type: "text", name: "site"}
+      .inputfield
+        %span Приналежність до фотооб’єднання
+        %input{type: "text", name: "photo_alliance"}
+      .inputfield
+        %span Посада
+        %input{type: "text", name: "position"}
+      .inputfield
+
+        %input{type: "submit", value: "submit"}
+      .back
+        %span Назад
+      .forward
+        %span Продовжити
   .upload
     .uploadwrap
       %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
       .uploadform
         .prewiev
-          %img{:alt => "", :src => "/images/upload.png"}
+          %img{alt: "", src: "/images/upload.png"}
           %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
         .inputfield
           %span Назва
-          %input{:type => "text"}/
+          %input{type: "text"}/
       .uploadform
         .prewiev
-          %img{:alt => "", :src => "/images/upload.png"}
+          %img{alt: "", src: "/images/upload.png"}
           %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
         .inputfield
           %span Назва
-          %input{:type => "text"}/
+          %input{type: "text"}/
       .uploadform
         .prewiev
-          %img{:alt => "", :src => "/images/upload.png"}
+          %img{alt: "", src: "/images/upload.png"}
           %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
         .inputfield
           %span Назва
-          %input{:type => "text"}/
+          %input{type: "text"}/
       .uploadform
         .prewiev
-          %img{:alt => "", :src => "/images/upload.png"}
+          %img{alt: "", src: "/images/upload.png"}
           %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
         .inputfield
           %span Назва
-          %input{:type => "text"}/
+          %input{type: "text"}/
       .uploadform
         .prewiev
-          %img{:alt => "", :src => "/images/upload.png"}
+          %img{alt: "", src: "/images/upload.png"}
           %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
         .inputfield
           %span Назва
-          %input{:type => "text"}/
+          %input{type: "text"}/
     .clear
     .back
       %span Назад
     .forward
       %span Продовжити
   .done.wrapper
-    %img{:alt => "done", :src => "/images/done.png"}/
+    %img{alt: "done", src: "/images/done.png"}/
     %p Вітаємо!
     %br/
     %span
@@ -190,7 +194,7 @@
     .close
       %span Закрити
 .calendar
-  %img{:alt => "", :blur => "", :src => "/images/bgblur.png"}
+  %img{alt: "", blur: "", src: "/images/bgblur.png"}
   .events
     %h3 Календар виставки
     %ul
@@ -212,97 +216,97 @@
 .awards.wrapper
   %h3 Нагороди
   .award
-    %a{:href => "http://www.prophoto.ua/products/tripod/pro/1343/"}
-      %img{:alt => "", :src => "/images/aw_1.jpg"}/
+    %a{href: "http://www.prophoto.ua/products/tripod/pro/1343/"}
+      %img{alt: "", src: "/images/aw_1.jpg"}/
     %p Штатив професійний SLIK Able 300 DX
   .award
-    %a{:href => "http://www.prophoto.ua/products/278/1391/?rp=9 "}
-      %img{:alt => "", :src => "/images/aw_2.jpg"}/
+    %a{href: "http://www.prophoto.ua/products/278/1391/?rp=9 "}
+      %img{alt: "", src: "/images/aw_2.jpg"}/
     %p Відбивач круглий LASTOLITE  Bottletops 5in1 50см (2096) (x2)
   .award
-    %a{:href => "http://www.prophoto.ua/products/305/310/1799/?rp=4  "}
-      %img{:alt => "", :src => "/images/aw_4.jpg"}/
+    %a{href: "http://www.prophoto.ua/products/305/310/1799/?rp=4  "}
+      %img{alt: "", src: "/images/aw_4.jpg"}/
     %p Зарядний пристрій HAHNEL Ventra Synergy AA 2500 (x2)
   .award
-    %a{:href => "http://strobist.ua/pulty/jjc-ir-u1.html"}
-      %img{:alt => "", :src => "/images/aw_5.jpg"}/
+    %a{href: "http://strobist.ua/pulty/jjc-ir-u1.html"}
+      %img{alt: "", src: "/images/aw_5.jpg"}/
     %p Універсальний інфрачервоний пульт JJC IR-U1
   .award
-    %a{:href => "http://strobist.ua/drugie/phottix-edge-2.0.html"}
-      %img{:alt => "", :src => "/images/aw_6.jpg"}/
+    %a{href: "http://strobist.ua/drugie/phottix-edge-2.0.html"}
+      %img{alt: "", src: "/images/aw_6.jpg"}/
     %p Картрідер Phottix Edge 2.0
   .award
-    %a{:href => "http://strobist.ua/remni/universalnyjj-kistevojj-remen-dlja-nikon-canon-sony-pentax-i-drugikh-fotoapparatov.html"}
-      %img{:alt => "", :src => "/images/aw_7.jpg"}/
+    %a{href: "http://strobist.ua/remni/universalnyjj-kistevojj-remen-dlja-nikon-canon-sony-pentax-i-drugikh-fotoapparatov.html"}
+      %img{alt: "", src: "/images/aw_7.jpg"}/
     %p Універсальний кистєвий ремінь
   .award
-    %a{:href => "http://strobist.ua/rasseivateli/rasseivatel-jyc-fr-01.html"}
-      %img{:alt => "", :src => "/images/aw_8.jpg"}/
+    %a{href: "http://strobist.ua/rasseivateli/rasseivatel-jyc-fr-01.html"}
+      %img{alt: "", src: "/images/aw_8.jpg"}/
     %p Розсіювач для бліца JYC FR-01
 .sponsors.wrapper
   %h3 Спонсори
-  %a{:href => "#"}
-    %img{:alt => "tamron", :src => "/images/tamron.png"}/
-  %a{:href => "#"}
-    %img{:alt => "prophoto", :src => "/images/prophoto.png"}/
-  %a{:href => "#"}
-    %img{:alt => "manfrotto", :src => "/images/manfrotto.png"}/
-  %a{:href => "#"}
-    %img{:alt => "strobist", :src => "/images/strobist.png"}/
+  %a{href: "#"}
+    %img{alt: "tamron", src: "/images/tamron.png"}/
+  %a{href: "#"}
+    %img{alt: "prophoto", src: "/images/prophoto.png"}/
+  %a{href: "#"}
+    %img{alt: "manfrotto", src: "/images/manfrotto.png"}/
+  %a{href: "#"}
+    %img{alt: "strobist", src: "/images/strobist.png"}/
 .partners.wrapper
   %h3 Партнери
   .partnerlist
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "saychesee", :src => "/images/saychesee.png"}
+        %a{href: "#"}
+          %img{alt: "saychesee", src: "/images/saychesee.png"}
         %p.fix В рамках східного партнерства
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "nsfhu", :src => "/images/nsfhu.png"}
+        %a{href: "#"}
+          %img{alt: "nsfhu", src: "/images/nsfhu.png"}
         %p Патронат НСФХУ 02/2015
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "isf", :src => "/images/isf.png"}
+        %a{href: "#"}
+          %img{alt: "isf", src: "/images/isf.png"}
         %p Label ISF 126/2015
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "colunb", :src => "/images/colunb.png"}
+        %a{href: "#"}
+          %img{alt: "colunb", src: "/images/colunb.png"}
         %p Фотоклуб Колумб
     %br/
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "ukrinform", :src => "/images/ukrinform.png"}
+        %a{href: "#"}
+          %img{alt: "ukrinform", src: "/images/ukrinform.png"}
       %p Інформаційна підтримка
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "altera", :src => "/images/altera.png"}
+        %a{href: "#"}
+          %img{alt: "altera", src: "/images/altera.png"}
       %p Медіапартнер
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "den", :src => "/images/den.png"}
+        %a{href: "#"}
+          %img{alt: "den", src: "/images/den.png"}
       %p СПЕЦІАЛЬНИЙ ПАРТНЕР
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "foroafisha", :src => "/images/fotoafisha.png"}
+        %a{href: "#"}
+          %img{alt: "foroafisha", src: "/images/fotoafisha.png"}
       %p Інформаційна підтримка
     %br/
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "photographer", :src => "/images/photographer.png"}
+        %a{href: "#"}
+          %img{alt: "photographer", src: "/images/photographer.png"}
       %p Інформаційна підтримка
     .partner
       .partnerlogo
-        %a{:href => "#"}
-          %img{:alt => "je", :src => "/images/je.png"}
+        %a{href: "#"}
+          %img{alt: "je", src: "/images/je.png"}
       %p
 .jury
   .jury_wrap
@@ -311,31 +315,31 @@
     .next
     .slider
       .member
-        %img{:alt => "jury_vysheslavskyj", :src => "/images/jury_vysheslavskyj.png"}
+        %img{alt: "jury_vysheslavskyj", src: "/images/jury_vysheslavskyj.png"}
         %p
           Гліб ВИШЕСЛАВСЬКИЙ
           %br/
           %span Мистецтвознавець, Київ
       .member
-        %img{:alt => "jury_gaidai", :src => "/images/jury_gaidai.png"}
+        %img{alt: "jury_gaidai", src: "/images/jury_gaidai.png"}
         %p
           Ігор ГАЙДАЙ
           %br/
           %span Фотограф, «Гайдай студіо», Київ
       .member
-        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}
+        %img{alt: "jury_perun", src: "/images/jury_perun.png"}
         %p
           Тарас ПЕРУН
           %br/
           %span НСФХУ, Чернівці
       .member
-        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}
+        %img{alt: "jury_perun", src: "/images/jury_perun.png"}
         %p
           Ростислав Кондрат
           %br/
           %span Посада
       .member
-        %img{:alt => "jury_perun", :src => "/images/jury_perun.png"}
+        %img{alt: "jury_perun", src: "/images/jury_perun.png"}
         %p
           Андрій Назаренко
           %br/
@@ -344,8 +348,8 @@
       .ident.current
       .ident
 %footer.wrapper
-  %a{:href => "#"}
-    %img{:alt => "fb_logo", :src => "/images/fb_logo.png"}
+  %a{href: "#"}
+    %img{alt: "fb_logo", src: "/images/fb_logo.png"}
   .adress
     %p
       Івано­-Франківська обласна організація
