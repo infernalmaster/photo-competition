@@ -426,7 +426,7 @@ input[type="text"]:focus{
             font-weight: 300;
             font-size: 18px;
             color: #ffffff;
-            top:6px;
+            top: 1px;
 
         }
             .events h3 {
@@ -645,4 +645,9 @@ padding-right: 20px;
 .award img {
 	height: 200px;
 	width: 200px;
+}
+
+.active {
+    color: #8f7726;
+    border-bottom: 2px solid #8f7726;
 }
