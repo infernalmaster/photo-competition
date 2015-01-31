@@ -3,13 +3,7 @@ $(document).ready(function () {
     initHeaderWithMenu();
     initJurySlider();
     initFileUploader();
-
-
-
-
     initTakePart();
-
-
 
 });
 
@@ -187,4 +181,8 @@ function initTakePart() {
     $('.js-close-take-part').click(function(){
         $showTakePartContent.trigger('click');
     });
+
+
+
+    $('.js-profile-form').validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
 }

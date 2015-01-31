@@ -106,26 +106,26 @@
       %button.btn.btn--forward.js-agree-with-right Я погоджуюсь з умовами, продовжити
 
     .form.take-part__step.js-take-part__step
-      %form{action: '/submit', method: 'post'}
+      %form.js-profile-form{action: '/submit', method: 'post'}
 
         %fieldset>
           %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
 
           .inputfield
             %span Ім’я
-            %input{type: "text", name: "name"}
+            %input{type: "text", name: "name", class: "validate[required]"}
           .inputfield
             %span Прізвище
-            %input{type: "text", name: "surname"}
+            %input{type: "text", name: "surname", class: "validate[required]"}
           .inputfield
             %span Адреса
-            %input{type: "text", name: "address"}
+            %input{type: "text", name: "address", class: "validate[required]"}
           .inputfield
             %span Телефон
-            %input{type: "text", name: "phone"}
+            %input{type: "text", name: "phone", class: "validate[required]"}
           .inputfield
             %span E-mail
-            %input{type: "text", name: "email"}
+            %input{type: "email", name: "email", class: "validate[required,custom[email]]"}
 
         %fieldset
           %legend ДОДАТКОВО
