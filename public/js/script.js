@@ -163,17 +163,13 @@ function initTakePart() {
 
 
     // profile form
-    var $profileForm = $('.js-profile-form'),
-        profileId;
-
+    var $profileForm = $('.js-profile-form');
     $profileForm.validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
     $('.js-send-profile').click(function() {
         if ($profileForm.validationEngine('validate',  {promptPosition : "topRight:-150,0", scrollOffset: 220})) {
             $.post('/save_profile', $profileForm.serialize()).then(
                 function(response) {
                     activateStep(2);
-                    profileId = response;
-                    console.log(response);
                 },
                 function(xhr) {
                     alert('Сталася помилка: ' + xhr.responseText);
@@ -186,24 +182,16 @@ function initTakePart() {
 
 
     var $imageForm = $('.js-images-form');
-
     $('.js-send-photos').click(function() {
-
         $.ajax( {
-            url: '/upload/' + profileId,
+            url: '/upload',
             type: 'POST',
             data: new FormData( $imageForm[0] ),
             processData: false,
             contentType: false
         } ).then(
             function(response) {
-
-
-                //activateStep(3);
-
                 document.location.href = response;
-                //$profileIdInput.val(response);
-                console.log(response);
             },
             function(xhr) {
                 alert('Сталася помилка: ' + xhr.responseText);
@@ -213,9 +201,6 @@ function initTakePart() {
 
     });
 
-    //$('.js-send-photos').click(function() {
-    //    activateStep(3);
-    //});
 
     $('.js-back-from-profile').click(function() {
         activateStep(0);

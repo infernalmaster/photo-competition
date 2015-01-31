@@ -17,16 +17,15 @@ helpers do
   # add your helpers here
 end
 
+enable :sessions
+
 # root page
 get '/' do
-  @photos = Photo.all
-  @profile = Profile.first
   haml :root
 end
 
 
 post '/save_profile' do
-  # todo do not create new if id exists
   profile = Profile.new({
     name: params[:name],
     surname: params[:surname],
@@ -39,7 +38,8 @@ post '/save_profile' do
   })
 
   if profile.save
-    profile.id.to_s
+    session[:user_id] = profile.id.to_i
+    return
   else
     status 406
     profile.errors.values.join(', ')
@@ -47,9 +47,9 @@ post '/save_profile' do
 
 end
 
-post '/upload/:id' do
+post '/upload' do
 
-  profile = Profile.get params[:id].to_i
+  profile = Profile.get session[:user_id]
   profile.photos = []
 
   5.times do |i|
@@ -60,10 +60,11 @@ post '/upload/:id' do
   end
 
   if profile.save
+    session.delete(:user_id)
     profile.payment_url
   else
     status 406
-    photo.errors.values.join(', ')
+    profile.errors.values.join(', ')
   end
 
 end
