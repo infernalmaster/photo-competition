@@ -25,7 +25,15 @@ set :unicorn, "/var/lib/gems/1.8/bin/unicorn"
 set :unicorn_conf, "/etc/unicorn/photo.syzspectroom.rb"
 set :unicorn_pid, "/var/run/unicorn/hosting_syzspectroom/photo.syzspectroom.pid"
 
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -E production -Dc #{unicorn_conf})"
+
+set :shared_children, shared_children + %w{public/uploads}
+
+task :copy_db, roles => :app do
+  app_db = "#{shared_path}/production.db"
+  run "ln -s #{app_db} #{release_path}/production.db"
+end
+after "deploy:update_code", :copy_db
 
 # - for unicorn - #
 namespace :deploy do
@@ -43,4 +51,9 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
+end
+
+desc "Use datamapper to call autoupgrade instead of db:migrate."
+task :migrate, :roles => :app do
+ run "cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec rake db:migrate RACK_ENV=production"
 end
