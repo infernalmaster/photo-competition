@@ -80,5 +80,7 @@ post "/payment/:id" do
   if profile.signature_valid?( params[:signature], params[:data] )
     profile.paid = true
     profile.save
+
+    # todo перейменувати всі зображення по шаблону і надіслати на пошту
   end
 end

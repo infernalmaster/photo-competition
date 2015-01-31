@@ -221,6 +221,8 @@ function initTakePart() {
 
     var $imageForm = $('.js-images-form');
     $('.js-send-photos').click(function() {
+
+        // todo потрібно валідувати кількість зображень, бо зараз можна засейвити без зображень взагалі
         $('.js-images-form').submit();
         //$.ajax( {
         //    url: '/upload',
