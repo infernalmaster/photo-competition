@@ -28,7 +28,7 @@ post '/submit' do
   profile = Profile.new
   profile.name = params[:name]
   profile.surname = params[:surname]
-  profile.adress = params[:adress]
+  profile.address = params[:address]
   profile.phone = params[:phone]
   profile.email = params[:email]
   profile.site = params[:site]

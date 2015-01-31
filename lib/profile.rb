@@ -5,7 +5,7 @@ class Profile
   property :id,             Serial
   property :name,           String
   property :surname,        String
-  property :adress,         String
+  property :address,         String
   property :phone,          String
   property :email,          String
 

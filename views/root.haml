@@ -50,158 +50,156 @@
         Фотопортрет — національний конкурс в жанрі фотопортретистики, що проходить в режимі бієнале.
         Мета конкурсу — продовження та розвиток
         кращих традицій української портретної фотографії
-.dd_takepart
-  #dd_button
-    %h2 Взяти учать
-#dd_takepart_content.wrapper
-  .steps
-    %ul
-      %li.step_terms.active
+
+
+.take-part
+  %button.btn.btn--take-apart.js-show-take-part-content Взяти учать
+
+  .wrapper.take-part-content.js-take-part-content
+    %ul.steps
+      %li.steps__item.js-take-part__nav-item
         %span Умови конкурсу
-      %li
-        %img{alt: "", src: "/images/steparrow.png"}
-      %li
+      %li.steps__item.js-take-part__nav-item
         %span Анкета
-      %li
-        %img{alt: "", src: "/images/steparrow.png"}
-      %li
+      %li.steps__item.js-take-part__nav-item
         %span Завантаження фото
-      %li
-        %img{alt: "", src: "/images/steparrow.png"}
-      %li
+      %li.steps__item.js-take-part__nav-item
         %span Оплата
-  .terms
-    .termslist
-      %textarea{readonly: "readonly"}
+
+    .terms.take-part__step.js-take-part__step
+      %textarea.terms__text{readonly: "readonly"}
         :preserve
 
-            1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
-            2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
-            3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
-            4. Конкурс проводитиметься в два етапи:
+          1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
+          2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
+          3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
+          4. Конкурс проводитиметься в два етапи:
 
-                             роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
-                              Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
-                              розміром 15х20 см, які використовуватимуться в ході роботи журі.
-                              після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
-                              об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
+                           роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
+                            Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
+                            розміром 15х20 см, які використовуватимуться в ході роботи журі.
+                            після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
+                            об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
 
-            5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
-            підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
-            Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
+          5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
+          підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
+          Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
 
-            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
-            1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
-            2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
-            3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
-            4. Конкурс проводитиметься в два етапи:
+          6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
+          1. До участі в конкурсі запрошуються всі фотографи України, а також персонально запрошені окремі автори із зарубіжжя.
+          2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
+          3. Роботи на конкурс приймаються виключно на e­mail: photoportrait@gmail.com
+          4. Конкурс проводитиметься в два етапи:
 
-                             роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
-                              Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
-                              розміром 15х20 см, які використовуватимуться в ході роботи журі.
-                              після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
-                              об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
+                           роботи на першому етапі приймаються у вигляді прев`ю у форматі jpg, роздільною здатністю 300dpi, до 1
+                            Мб та 2300 px по довгій стороні. Розміру повинно бути достатньо для друку контрольних відбитків
+                            розміром 15х20 см, які використовуватимуться в ході роботи журі.
+                            після відбору журі, на другому етапі, автор має надіслати на той же e­mail  оригінали відібраних фото
+                            об’ємом, що дозволятиме друк фотографій розмірами від 30х30 см до 30х45 см.
 
-            5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
-            підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
-            Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
+          5. Разом з відправкою прев`ю робіт автор повинен подати заповнену вхідну форму учасника (entry­form) та
+          підтвердження оплати участі. Прохання вхідну форму заповнювати і зберігати в оригінальному форматі Word.
+          Без заповненої entry­form та підтвердження оплати фотороботи не розглядаються.
 
-            6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
-    .forward
-      %span Я ПОГОДЖУЮСЬ З УМОВАМИ,Продовжити
-  .form
-    %form{action: '/submit', method: 'post'}
+          6. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути
 
-      %fieldset>
-        %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+      %button.btn.btn--forward.js-agree-with-right Я погоджуюсь з умовами, продовжити
+
+    .form.take-part__step.js-take-part__step
+      %form{action: '/submit', method: 'post'}
+
+        %fieldset>
+          %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+
+          .inputfield
+            %span Ім’я
+            %input{type: "text", name: "name"}
+          .inputfield
+            %span Прізвище
+            %input{type: "text", name: "surname"}
+          .inputfield
+            %span Адреса
+            %input{type: "text", name: "address"}
+          .inputfield
+            %span Телефон
+            %input{type: "text", name: "phone"}
+          .inputfield
+            %span E-mail
+            %input{type: "text", name: "email"}
+
+        %fieldset
+          %legend ДОДАТКОВО
+          .inputfield
+            %span Веб сайт
+            %input{type: "text", name: "site"}
+          .inputfield
+            %span Приналежність до фотооб’єднання
+            %input{type: "text", name: "photo_alliance"}
+          .inputfield
+            %span Посада
+            %input{type: "text", name: "position"}
 
         .inputfield
-          %span Ім’я
-          %input{type: "text", name: "name"}
-        .inputfield
-          %span Прізвище
-          %input{type: "text", name: "surname"}
-        .inputfield
-          %span Адреса
-          %input{type: "text", name: "adress"}
-        .inputfield
-          %span Телефон
-          %input{type: "text", name: "phone"}
-        .inputfield
-          %span E-mail
-          %input{type: "text", name: "email"}
+          %input{type: "submit", value: "submit"}
+      %button.btn.btn--back Назад
+      %button.btn.btn--forward.btn--forward-short.js-send-profile Продовжити
 
-      %fieldset
-        %legend ДОДАТКОВО
-        .inputfield
-          %span Веб сайт
-          %input{type: "text", name: "site"}
-        .inputfield
-          %span Приналежність до фотооб’єднання
-          %input{type: "text", name: "photo_alliance"}
-        .inputfield
-          %span Посада
-          %input{type: "text", name: "position"}
+    .upload.take-part__step.js-take-part__step
+      .uploadwrap
+        %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
+        .uploadform
+          .prewiev
+            %img{alt: "", src: "/images/upload.png"}
+            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+          .inputfield
+            %span Назва
+            %input{type: "text"}/
+        .uploadform
+          .prewiev
+            %img{alt: "", src: "/images/upload.png"}
+            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+          .inputfield
+            %span Назва
+            %input{type: "text"}/
+        .uploadform
+          .prewiev
+            %img{alt: "", src: "/images/upload.png"}
+            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+          .inputfield
+            %span Назва
+            %input{type: "text"}/
+        .uploadform
+          .prewiev
+            %img{alt: "", src: "/images/upload.png"}
+            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+          .inputfield
+            %span Назва
+            %input{type: "text"}/
+        .uploadform
+          .prewiev
+            %img{alt: "", src: "/images/upload.png"}
+            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+          .inputfield
+            %span Назва
+            %input{type: "text"}/
+      .clear
 
-      .inputfield
-        %input{type: "submit", value: "submit"}
-    .back
-      %span Назад
-    .forward
-      %span Продовжити
-  .upload
-    .uploadwrap
-      %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
-      .uploadform
-        .prewiev
-          %img{alt: "", src: "/images/upload.png"}
-          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-        .inputfield
-          %span Назва
-          %input{type: "text"}/
-      .uploadform
-        .prewiev
-          %img{alt: "", src: "/images/upload.png"}
-          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-        .inputfield
-          %span Назва
-          %input{type: "text"}/
-      .uploadform
-        .prewiev
-          %img{alt: "", src: "/images/upload.png"}
-          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-        .inputfield
-          %span Назва
-          %input{type: "text"}/
-      .uploadform
-        .prewiev
-          %img{alt: "", src: "/images/upload.png"}
-          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-        .inputfield
-          %span Назва
-          %input{type: "text"}/
-      .uploadform
-        .prewiev
-          %img{alt: "", src: "/images/upload.png"}
-          %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-        .inputfield
-          %span Назва
-          %input{type: "text"}/
-    .clear
-    .back
-      %span Назад
-    .forward
-      %span Продовжити
-  .done.wrapper
-    %img{alt: "done", src: "/images/done.png"}/
-    %p Вітаємо!
-    %br/
-    %span
-      Ваші роботи успішно завантажені.
-      = succeed "\u{41c}\u{438}" do
-        %br/
-    .close
-      %span Закрити
+      %button.btn.btn--back Назад
+      %button.btn.btn--forward.btn--forward-short.js-send-photos Продовжити
+
+
+    .done.take-part__step.js-take-part__step
+      %img{alt: "done", src: "/images/done.png"}/
+      %p Вітаємо!
+      %br/
+      %span
+        Ваші роботи успішно завантажені.
+        = succeed "\u{41c}\u{438}" do
+          %br/
+
+      %button.btn.btn--close Закрити
+
+
 
 
 -#      calendar
