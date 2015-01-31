@@ -28,6 +28,6 @@ configure do
 
   DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{File.expand_path(File.dirname(__FILE__))}/#{Sinatra::Base.environment}.db"))
   DataMapper.finalize #check models
-  DataMapper.auto_migrate! # drop and recreate all db tables
+  #DataMapper.auto_migrate! # drop and recreate all db tables
   #DataMapper.auto_upgrade!  # just add new columns and tables
 end

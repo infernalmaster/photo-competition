@@ -197,7 +197,9 @@ function initTakePart() {
             contentType: false
         } ).then(
             function(response) {
-                activateStep(3);
+
+
+                //activateStep(3);
 
                 document.location.href = response;
                 //$profileIdInput.val(response);
