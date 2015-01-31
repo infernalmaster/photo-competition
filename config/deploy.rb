@@ -3,9 +3,8 @@ set :application, "photo"
 
 # настройка системы контроля версий и репозитария, по умолчанию - git, если используется иная система версий, нужно изменить значение scm
 set :scm, :git
-set :deploy_via, :copy
-set :copy_exclude, [".git"]
-set :repository,  "git@github.com:infernalmaster/photo-competition.git"
+set :deploy_via, :remote_cache
+set :repository,  "https://github.com/infernalmaster/photo-competition.git"
 
 set :user, "hosting_syzspectroom"
 set :use_sudo, false
