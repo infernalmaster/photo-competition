@@ -7,45 +7,9 @@ $(document).ready(function () {
 
 
 
+    initTakePart();
 
 
-    var $showTakePartContent = $('.js-show-take-part-content'),
-        $takePartContent = $('.js-take-part-content'),
-        $steps = $('.js-take-part__step'),
-        $navItem = $('.js-take-part__nav-item');
-
-    function activateStep(number) {
-        $steps.removeClass('active').eq(number).addClass('active');
-        $navItem.removeClass('active').eq(number).addClass('active');
-        $('html, body').stop().animate({
-            scrollTop: $takePartContent.offset().top
-        }, 300);
-    }
-
-    $showTakePartContent.click(function() {
-        activateStep(0);
-
-        if ($takePartContent.hasClass('active')) {
-            $showTakePartContent.removeClass('active');
-            $takePartContent.removeClass('active');
-        } else {
-            $showTakePartContent.addClass('active');
-            $takePartContent.addClass('active');
-        }
-    });
-
-
-    $('.js-agree-with-right').click(function() {
-        activateStep(1);
-    });
-
-    $('.js-send-profile').click(function() {
-        activateStep(2);
-    });
-
-    $('.js-send-photos').click(function() {
-        activateStep(3);
-    });
 
 });
 
@@ -166,4 +130,61 @@ function initFileUploader() {
     function uploadCanceled(evt) {
         alert("The upload has been canceled by the user or the browser dropped the connection.");
     };
+}
+
+
+function initTakePart() {
+    var $showTakePartContent = $('.js-show-take-part-content'),
+        $takePartContent = $('.js-take-part-content'),
+        $steps = $('.js-take-part__step'),
+        $navItem = $('.js-take-part__nav-item');
+
+    function activateStep(number) {
+        $steps.removeClass('active').eq(number).addClass('active');
+        $navItem.removeClass('active').eq(number).addClass('active');
+        $('html, body').stop().animate({
+            scrollTop: $takePartContent.offset().top
+        }, 300);
+    }
+
+    $showTakePartContent.click(function() {
+        activateStep(0);
+
+        if ($takePartContent.hasClass('active')) {
+            $showTakePartContent.removeClass('active');
+            $takePartContent.removeClass('active');
+        } else {
+            $showTakePartContent.addClass('active');
+            $takePartContent.addClass('active');
+        }
+    });
+
+
+    $('.js-agree-with-right').click(function() {
+        activateStep(1);
+    });
+
+    $('.js-send-profile').click(function() {
+        activateStep(2);
+    });
+
+    $('.js-send-photos').click(function() {
+        activateStep(3);
+    });
+
+    $('.js-send-photos').click(function() {
+        activateStep(3);
+    });
+
+    $('.js-back-from-profile').click(function() {
+        activateStep(0);
+    });
+
+    $('.js-back-from-photos').click(function() {
+        activateStep(1);
+    });
+
+    $('.js-close-take-part').click(function(){
+        $showTakePartContent.trigger('click');
+    });
 }
