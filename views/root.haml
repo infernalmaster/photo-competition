@@ -1,27 +1,27 @@
--# begin comment me
-%h2 html5 upload
-%form#form1{:action => "Upload.aspx", :enctype => "multipart/form-data", :method => "post"}
-  .row
-    %label{:for => "fileToUpload"} Select a File to Upload
-    %br/
-    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", type: "file"}/
-  #fileName
-  #fileSize
-  #fileType
-  .row
-    %input{:onclick => "uploadFile()", type: "button", :value => "Upload"}/
-  #progressNumber
-
-
-
-- @photos.each do |photo|
-  %div= photo.file
-%h2 form upload
-%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
-  %p
-    %input{:name => "image", type: "file"}
-  %input{type: "submit", :value => "Take Note!"}
--# end comment me
+-#-# begin comment me
+-#%h2 html5 upload
+-#%form#form1{:action => "Upload.aspx", :enctype => "multipart/form-data", :method => "post"}
+-#  .row
+-#    %label{:for => "fileToUpload"} Select a File to Upload
+-#    %br/
+-#    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", type: "file"}/
+-#  #fileName
+-#  #fileSize
+-#  #fileType
+-#  .row
+-#    %input{:onclick => "uploadFile()", type: "button", :value => "Upload"}/
+-#  #progressNumber
+-#
+-#
+-#
+-#- @photos.each do |photo|
+-#  %div= photo.file
+-#%h2 form upload
+-#%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
+-#  %p
+-#    %input{:name => "image", type: "file"}
+-#  %input{type: "submit", :value => "Take Note!"}
+-#-# end comment me
 
 .wrapper_menu
   .menu
@@ -106,7 +106,7 @@
       %button.btn.btn--forward.js-agree-with-right Я погоджуюсь з умовами, продовжити
 
     .form.take-part__step.js-take-part__step
-      %form.js-profile-form{action: '/submit', method: 'post'}
+      %form.js-profile-form{action: '/save_profile', method: 'post'}
 
         %fieldset>
           %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
@@ -145,43 +145,20 @@
       %button.btn.btn--forward.btn--forward-short.js-send-profile Продовжити
 
     .upload.take-part__step.js-take-part__step
-      .uploadwrap
-        %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
-        .uploadform
-          .prewiev
-            %img{alt: "", src: "/images/upload.png"}
-            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-          .inputfield
-            %span Назва
-            %input{type: "text"}/
-        .uploadform
-          .prewiev
-            %img{alt: "", src: "/images/upload.png"}
-            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-          .inputfield
-            %span Назва
-            %input{type: "text"}/
-        .uploadform
-          .prewiev
-            %img{alt: "", src: "/images/upload.png"}
-            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-          .inputfield
-            %span Назва
-            %input{type: "text"}/
-        .uploadform
-          .prewiev
-            %img{alt: "", src: "/images/upload.png"}
-            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-          .inputfield
-            %span Назва
-            %input{type: "text"}/
-        .uploadform
-          .prewiev
-            %img{alt: "", src: "/images/upload.png"}
-            %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
-          .inputfield
-            %span Назва
-            %input{type: "text"}/
+      %form.js-images-form{action: '/upload', method: 'post', enctype: "multipart/form-data"}
+        .uploadwrap
+          %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
+
+          - 5.times do |i|
+            .uploadform
+              %input{name: "image#{i}", type: "file", accept: "image/jpeg"}
+              .prewiev
+                %img{alt: "", src: "/images/upload.png"}
+                %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+              .inputfield
+                %span Назва
+                %input{name: "title#{i}", type: "text"}
+
       .clear
 
       %button.btn.btn--back.js-back-from-photos Назад

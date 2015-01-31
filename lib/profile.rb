@@ -5,7 +5,7 @@ class Profile
   property :id,             Serial
   property :name,           String
   property :surname,        String
-  property :address,         String
+  property :address,        String
   property :phone,          String
   property :email,          String
 
@@ -17,7 +17,9 @@ class Profile
   property :created_at,     DateTime
   property :updated_at,     DateTime
 
-  validates_presence_of :name, :surname, :adress, :phone, :email
+  has n, :photos
+
+  validates_presence_of :name, :surname, :address, :phone, :email
 
   def payment_url
     base = request_params

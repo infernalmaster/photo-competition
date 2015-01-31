@@ -158,17 +158,62 @@ function initTakePart() {
         activateStep(1);
     });
 
+
+
+
+
+    // profile form
+    var $profileForm = $('.js-profile-form'),
+        profileId;
+
+    $profileForm.validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
     $('.js-send-profile').click(function() {
-        activateStep(2);
+        if ($profileForm.validationEngine('validate',  {promptPosition : "topRight:-150,0", scrollOffset: 220})) {
+            $.post('/save_profile', $profileForm.serialize()).then(
+                function(response) {
+                    activateStep(2);
+                    profileId = response;
+                    console.log(response);
+                },
+                function(xhr) {
+                    alert('Сталася помилка: ' + xhr.responseText);
+                }
+            );
+        }
     });
 
-    $('.js-send-photos').click(function() {
-        activateStep(3);
-    });
+
+
+
+    var $imageForm = $('.js-images-form');
 
     $('.js-send-photos').click(function() {
-        activateStep(3);
+
+        $.ajax( {
+            url: '/upload/' + profileId,
+            type: 'POST',
+            data: new FormData( $imageForm[0] ),
+            processData: false,
+            contentType: false
+        } ).then(
+            function(response) {
+                activateStep(3);
+
+                document.location.href = response;
+                //$profileIdInput.val(response);
+                console.log(response);
+            },
+            function(xhr) {
+                alert('Сталася помилка: ' + xhr.responseText);
+            }
+        );
+
+
     });
+
+    //$('.js-send-photos').click(function() {
+    //    activateStep(3);
+    //});
 
     $('.js-back-from-profile').click(function() {
         activateStep(0);
@@ -184,5 +229,5 @@ function initTakePart() {
 
 
 
-    $('.js-profile-form').validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
+
 }

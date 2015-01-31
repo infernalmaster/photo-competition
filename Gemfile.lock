@@ -110,6 +110,7 @@ DEPENDENCIES
   carrierwave-datamapper
   data_mapper
   dm-aggregates
+  dm-constraints
   dm-core
   dm-migrations
   dm-sqlite-adapter

@@ -24,8 +24,11 @@ get '/' do
   haml :root
 end
 
-post '/submit' do
+
+post '/save_profile' do
+  # todo do not create new if id exists
   profile = Profile.new
+
   profile.name = params[:name]
   profile.surname = params[:surname]
   profile.address = params[:address]
@@ -36,23 +39,41 @@ post '/submit' do
   profile.position = params[:position]
 
   if profile.save
-
-    redirect profile.payment_url
+    profile.id.to_s
+  else
+    status 406
+    profile.errors.values.join(', ')
   end
 
 end
 
+post '/upload/:id' do
+
+  profile = Profile.get params[:id].to_i
+  profile.photos = []
+
+  5.times do |i|
+    profile.photos << Photo.new({
+      file:  params["image#{i}"],
+      title: params["title#{i}"]
+    })
+  end
+
+  if profile.save
+    profile.payment_url
+  else
+    status 406
+    photo.errors.values.join(', ')
+  end
+
+end
+
+
+
 post "/payment/:id" do
-  profile = Profile.get(params[:id])
+  profile = Profile.get params[:id].to_i
   if profile.signature_valid?( params[:signature], params[:data] )
     profile.paid = true
     profile.save
   end
-end
-
-post '/upload' do
-  upload = Photo.new
-  upload.file = params[:image]
-  upload.save
-  redirect "/", 303
 end
