@@ -1,70 +1,15 @@
 $(document).ready(function () {
 
-    // top menu
-    $('body').scrollspy({ target: '.js-main-nav' });
-    $(".js-main-nav a").on('click', function(e) {
-        e.preventDefault();
-        var hash = this.hash;
-        // animate
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 300, function(){
-            window.location.hash = hash;
-        });
-    });
-
-
-    $window = $(window);
-    $menu = $('.wrapper_menu');
-    $(window).scroll(function () {
-        var top = $window.scrollTop();
-        //shadow menu
-        if (top > 50) {
-            $menu.addClass('dropshadow');
-        } else {
-            $menu.removeClass('dropshadow')
-        }
-    });
+    initHeaderWithMenu();
+    initJurySlider();
+    initFileUploader();
 
 
 
-    $('.prev').hide();
 
-    var nextslide = function () {
-        $('.next').hide('0', function () {
-            $('.prev').show('0', function () {
-            });
-        });
-        if (!$('.slider').is(':animated')) {
-            $('.slider').animate(
-                {left: -600}, 400);
-            $('.current').removeClass('current');
-            $('.ident').eq(1).addClass('current');
-        }
-    }
 
-    var previousslide = function () {
-        $('.prev').hide('0', function () {
-            $('.next').show('0', function () {
-            });
 
-        });
-        if (!$('.slider').is(':animated')) {
-            $('.slider').animate(
-                {left: 0}, 400);
-            $('.current').removeClass('current');
-            $('.ident').eq(0).addClass('current');
-        }
 
-    }
-
-    $('.prev').click(previousslide);
-
-    $('.next').click(nextslide);
-
-    $('.ident').eq(1).click(nextslide);
-
-    $('.ident').eq(0).click(previousslide);
 //close dd
     function close_dd() {
         $('#dd_takepart_content').slideUp(200);
@@ -117,12 +62,74 @@ $(document).ready(function () {
     });
 
 
+});
+
+function initHeaderWithMenu(){
+    $('body').scrollspy({ target: '.js-main-nav' });
+
+    $(".js-main-nav a").on('click', function(e) {
+        e.preventDefault();
+        var hash = this.hash;
+        // animate
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 300, function(){
+            window.location.hash = hash;
+        });
+    });
 
 
+    $window = $(window);
+    $menu = $('.wrapper_menu');
+    $(window).scroll(function () {
+        var top = $window.scrollTop();
+        //shadow menu
+        if (top > 50) {
+            $menu.addClass('dropshadow');
+        } else {
+            $menu.removeClass('dropshadow')
+        }
+    });
+}
+
+function initJurySlider() {
+    $('.prev').hide();
+
+    var nextslide = function () {
+        $('.next').hide('0', function () {
+            $('.prev').show('0', function () {
+            });
+        });
+        if (!$('.slider').is(':animated')) {
+            $('.slider').animate(
+                {left: -600}, 400);
+            $('.current').removeClass('current');
+            $('.ident').eq(1).addClass('current');
+        }
+    };
+    var previousslide = function () {
+        $('.prev').hide('0', function () {
+            $('.next').show('0', function () {
+            });
+
+        });
+        if (!$('.slider').is(':animated')) {
+            $('.slider').animate(
+                {left: 0}, 400);
+            $('.current').removeClass('current');
+            $('.ident').eq(0).addClass('current');
+        }
+
+    };
+
+    $('.prev').click(previousslide);
+    $('.next').click(nextslide);
+    $('.ident').eq(1).click(nextslide);
+    $('.ident').eq(0).click(previousslide);
+}
 
 
-
-
+function initFileUploader() {
     // fileupload
     window.fileSelected = function() {
         var file = document.getElementById('fileToUpload').files[0];
@@ -137,7 +144,7 @@ $(document).ready(function () {
             document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
             document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
         }
-    }
+    };
 
 
     window.uploadFile = function () {
@@ -150,7 +157,7 @@ $(document).ready(function () {
         xhr.addEventListener("abort", uploadCanceled, false);
         xhr.open("POST", "/upload");
         xhr.send(fd);
-    }
+    };
 
     function uploadProgress(evt) {
         if (evt.lengthComputable) {
@@ -160,18 +167,18 @@ $(document).ready(function () {
         else {
             document.getElementById('progressNumber').innerHTML = 'unable to compute';
         }
-    }
+    };
 
     function uploadComplete(evt) {
         /* This event is raised when the server send back a response */
         alert(evt.target.responseText);
-    }
+    };
 
     function uploadFailed(evt) {
         alert("There was an error attempting to upload the file.");
-    }
+    };
 
     function uploadCanceled(evt) {
         alert("The upload has been canceled by the user or the browser dropped the connection.");
-    }
-});
+    };
+}

@@ -546,12 +546,13 @@ input[type="text"]:focus{
 
 }
 .next,.prev{
-		 -webkit-transition: opacity 0.1s ease-out 0.1s;
+    -webkit-transition: opacity 0.1s ease-out 0.1s;
      -moz-transition: opacity 0.1s ease-out 0.1s;
      -o-transition:opacity  0.1s ease-out 0.1s;
      transition: opacity 0.1s ease-out 0.1s;
      position: relative;
      top: 140px;
+    cursor: pointer;
 }
 .prev:hover, .next:hover{
 	opacity: 1;
@@ -594,11 +595,13 @@ input[type="text"]:focus{
 	border: 1px solid white;
 	width: 14px;
 	height: 14px;
+    cursor: pointer;
 }
 .current{
 	width: 15px;
 	height: 15px;
 	background: #ffffff;
+    cursor: default;
 }
 footer{
 	font-family: 'Roboto',sans-serif;
