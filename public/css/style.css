@@ -258,23 +258,26 @@ textarea{
 	cursor: pointer;
 }
 
-.form p{
+
+.form fieldset {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form legend{
 	font-family: 'Roboto',sans-serif;
 	font-weight: 700;
 	font-size: 18px;
 	color: #b7b7b7;
 	text-transform: uppercase;
-	padding-top: 60px;
 }
-.form p:first-child{
-	padding-top: 0;
-	padding: 0 0 7px 0;
-}
+
 .back,.forward{
 	margin-top: 34px;
 }
 .inputfield{
-	padding-top: 25px;
+	padding-top: 20px;
 }
 .inputfield span{
 	font-family: 'Roboto Condensed',sans-serif;
@@ -285,7 +288,7 @@ textarea{
 }
 input[type="text"]{
 	width: 354px;
-	height: 54px;
+	height: 40px;
 	font-family: 'Roboto',sans-serif;
 	font-size: 24px;
 	border: 3px solid #bdbdbd;
@@ -294,6 +297,8 @@ input[type="text"]{
 input[type="text"]:focus{
 	border: 3px solid #8f7726;
 }
+
+
 .prewiev{
     width: 300px;
     height: 300px;

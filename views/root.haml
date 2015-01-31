@@ -111,34 +111,39 @@
       %span Я ПОГОДЖУЮСЬ З УМОВАМИ,Продовжити
   .form
     %form{action: '/submit', method: 'post'}
-      %p ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
-      .inputfield
-        %span Ім’я
-        %input{type: "text", name: "name"}
-      .inputfield
-        %span Прізвище
-        %input{type: "text", name: "surname"}
-      .inputfield
-        %span Адреса
-        %input{type: "text", name: "adress"}
-      .inputfield
-        %span Телефон
-        %input{type: "text", name: "phone"}
-      .inputfield
-        %span E-mail
-        %input{type: "text", name: "email"}
-      %p ДОДАТКОВО
-      .inputfield
-        %span Веб сайт
-        %input{type: "text", name: "site"}
-      .inputfield
-        %span Приналежність до фотооб’єднання
-        %input{type: "text", name: "photo_alliance"}
-      .inputfield
-        %span Посада
-        %input{type: "text", name: "position"}
-      .inputfield
 
+      %fieldset>
+        %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+
+        .inputfield
+          %span Ім’я
+          %input{type: "text", name: "name"}
+        .inputfield
+          %span Прізвище
+          %input{type: "text", name: "surname"}
+        .inputfield
+          %span Адреса
+          %input{type: "text", name: "adress"}
+        .inputfield
+          %span Телефон
+          %input{type: "text", name: "phone"}
+        .inputfield
+          %span E-mail
+          %input{type: "text", name: "email"}
+
+      %fieldset
+        %legend ДОДАТКОВО
+        .inputfield
+          %span Веб сайт
+          %input{type: "text", name: "site"}
+        .inputfield
+          %span Приналежність до фотооб’єднання
+          %input{type: "text", name: "photo_alliance"}
+        .inputfield
+          %span Посада
+          %input{type: "text", name: "position"}
+
+      .inputfield
         %input{type: "submit", value: "submit"}
     .back
       %span Назад
