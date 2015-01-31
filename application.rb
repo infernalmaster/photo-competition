@@ -27,16 +27,16 @@ end
 
 post '/save_profile' do
   # todo do not create new if id exists
-  profile = Profile.new
-
-  profile.name = params[:name]
-  profile.surname = params[:surname]
-  profile.address = params[:address]
-  profile.phone = params[:phone]
-  profile.email = params[:email]
-  profile.site = params[:site]
-  profile.photo_alliance = params[:photo_alliance]
-  profile.position = params[:position]
+  profile = Profile.new({
+    name: params[:name],
+    surname: params[:surname],
+    address: params[:address],
+    phone: params[:phone],
+    email: params[:email],
+    site: params[:site],
+    photo_alliance: params[:photo_alliance],
+    position: params[:position]
+  })
 
   if profile.save
     profile.id.to_s
