@@ -13,6 +13,13 @@ gem 'haml'
 gem 'carrierwave'
 gem 'carrierwave-datamapper'
 gem 'rmagick'
+group :production do
+  gem 'unicorn'
+end
+group :development do
+  gem 'capistrano', '~> 2.15.5'
+end
+
 group :test do
   gem 'rspec', :require => 'spec'
   gem 'rack-test'

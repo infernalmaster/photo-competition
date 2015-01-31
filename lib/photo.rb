@@ -1,3 +1,4 @@
+require 'image_uploader'
 class Photo
   include DataMapper::Resource
   property :id,          Serial
