@@ -149,13 +149,13 @@
 
           - 5.times do |i|
             .uploadform
-              %input{name: "image#{i}", type: "file", accept: "image/jpeg"}
-              .prewiev
-                %img{alt: "", src: "/images/upload.png"}
+              %input.preview-image-input.js-img-input{name: "image#{i}", type: "file", accept: "image/jpeg", id: "image_upload#{i}"}
+              %label.preview{for: "image_upload#{i}"}
                 %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+                %img.preview_image.js-img-preview
               .inputfield
                 %span Назва
-                %input{name: "title#{i}", type: "text"}
+                %input.js-img-title{name: "title#{i}", type: "text"}
 
       .clear
 

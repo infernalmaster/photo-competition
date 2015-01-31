@@ -179,26 +179,63 @@ function initTakePart() {
     });
 
 
+    // just for debug
+    //$showTakePartContent.addClass('active');
+    //$takePartContent.addClass('active');
+    //activateStep(2);
 
+    $('.js-img-input').change(function() {
+        if (!this.files || !this.files[0]) { return; }
+
+        var $el = $(this),
+            file = this.files[0],
+            reader = new FileReader(),
+            image  = new Image();
+
+        reader.onload = function(_file) {
+            image.onload = function() {
+                var w = this.width,
+                    h = this.height,
+                    t = file.type,                           // ext only: // file.type.split('/')[1],
+                    n = file.name,
+                    s = ~~(file.size/1024) +'KB';
+
+                if (file.type !== 'image/jpeg') {
+                    return alert('тільки файли з розширенням jpeg aбо jpg');
+                }
+                if (this.width > 2400 || this.height > 2400) {
+                    $el.parent().find('.js-img-preview').prop('src', this.src );
+                    $el.parent().find('.js-img-title').val(n.split('.')[0]);
+                } else {
+                    $el.val('');
+                    alert('мінімум 2400 px по довшій стороні');
+                }
+            };
+            image.onerror = function() {
+                alert('тільки файли з розширенням jpeg aбо jpg');
+            };
+            image.src    = _file.target.result;              // url.createObjectURL(file);
+        };
+        reader.readAsDataURL(file);
+    });
 
     var $imageForm = $('.js-images-form');
     $('.js-send-photos').click(function() {
-        $.ajax( {
-            url: '/upload',
-            type: 'POST',
-            data: new FormData( $imageForm[0] ),
-            processData: false,
-            contentType: false
-        } ).then(
-            function(response) {
-                document.location.href = response;
-            },
-            function(xhr) {
-                alert('Сталася помилка: ' + xhr.responseText);
-            }
-        );
-
-
+        $('.js-images-form').submit();
+        //$.ajax( {
+        //    url: '/upload',
+        //    type: 'POST',
+        //    data: new FormData( $imageForm[0] ),
+        //    processData: false,
+        //    contentType: false
+        //} ).then(
+        //    function(response) {
+        //        document.location.href = response;
+        //    },
+        //    function(xhr) {
+        //        alert('Сталася помилка: ' + xhr.responseText);
+        //    }
+        //);
     });
 
 

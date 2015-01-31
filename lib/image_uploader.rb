@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
-  include CarrierWave::RMagick
+  #include CarrierWave::RMagick
   storage :file
 
   def store_dir
@@ -8,11 +8,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jpg jpeg gif png bmp)
+    %w(jpg jpeg JPG JPEG)
   end
 
-  version :thumb do
-    process :resize_to_fill => [100,74]
-  end
+  #version :thumb do
+  #  process :resize_to_fill => [100,74]
+  #end
 
 end

@@ -26,6 +26,8 @@ end
 
 
 post '/save_profile' do
+  Profile.get(session[:user_id]).destroy if session[:user_id]
+
   profile = Profile.new({
     name: params[:name],
     surname: params[:surname],
@@ -59,9 +61,11 @@ post '/upload' do
     })
   end
 
+  # todo коли при валідації зображень станеться помилка то профіль всервно збережеться
+  # тому потрібно це десь врахувати
   if profile.save
     session.delete(:user_id)
-    profile.payment_url
+    redirect profile.payment_url
   else
     status 406
     profile.errors.values.join(', ')
