@@ -45,8 +45,8 @@ class Profile
         description: self.id,
         language: 'ru',
         order_id: order_id,
-        server_url: "http://localhost:4567/payment/#{self.id}",
-        result_url: "http://localhost:4567",
+        server_url: "#{SiteConfig.url_base}/payment/#{self.id}",
+        result_url: SiteConfig.url_base,
         sandbox: 1
       }
       json = JSON.generate( params )

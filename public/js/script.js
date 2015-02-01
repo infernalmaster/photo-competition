@@ -180,9 +180,9 @@ function initTakePart() {
 
 
     // just for debug
-    $showTakePartContent.addClass('active');
-    $takePartContent.addClass('active');
-    activateStep(1);
+    //$showTakePartContent.addClass('active');
+    //$takePartContent.addClass('active');
+    //activateStep(1);
 
     $('.js-img-input').change(function() {
         if (!this.files || !this.files[0]) { return; }
@@ -252,12 +252,6 @@ function initTakePart() {
     $('.js-back-from-photos').click(function() {
         activateStep(1);
     });
-
-    $('.js-close-take-part').click(function(){
-        $showTakePartContent.trigger('click');
-    });
-
-
 
 
 }

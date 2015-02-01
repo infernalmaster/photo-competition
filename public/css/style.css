@@ -161,7 +161,6 @@ h4{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-appearance: button;
 
     -webkit-transition:  0.3s ease-out 0.3s;
     -moz-transition: 0.3s ease-out 0.3s;
@@ -221,6 +220,7 @@ h4{
 .btn--close {
     background: #414140;
     margin-top:50px;
+    text-decoration: none;
 }
     .btn--close:before{
         position: relative;
@@ -423,7 +423,7 @@ input[type="text"]:focus, input[type="email"]:focus {
 
 /* step done */
 .done {
-	padding-top: 20px;
+	padding-top: 100px;
 	text-align: center;
 	height: 340px;
 }
