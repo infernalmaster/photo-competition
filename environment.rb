@@ -18,9 +18,9 @@ require 'sinatra' unless defined?(Sinatra)
 
 configure do
   SiteConfig = OpenStruct.new(
-                 :title => 'П’ята бієнале імені Степана Назаренка',
-                 :author => 'Your Name',
-                 :url_base => 'http://localhost:4567/'
+                 title: 'П’ята бієнале імені Степана Назаренка',
+                 url_base: 'http://localhost:4567/',
+                 fb_url: 'https://fb.com'
                )
 
   # load models
