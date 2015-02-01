@@ -34,7 +34,7 @@ class Profile
   protected
 
     def rate
-      650
+      if self.photo_alliance then 70 else 120 end
     end
 
     def request_params
