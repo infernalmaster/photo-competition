@@ -203,7 +203,7 @@ function initTakePart() {
                 if (file.type !== 'image/jpeg') {
                     return alert('тільки файли з розширенням jpeg aбо jpg');
                 }
-                if (this.width > 2400 || this.height > 2400) {
+                if (this.width >= 2400 || this.height >= 2400) {
                     $el.parent().find('.js-img-preview').prop('src', this.src );
                     $el.parent().find('.js-img-title').val(n.split('.')[0]);
                 } else {

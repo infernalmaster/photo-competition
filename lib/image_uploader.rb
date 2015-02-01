@@ -23,7 +23,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.profile.name}_#{model.profile.name.surname}_#{model.title}.{model.file.file.extension}"
+    "#{model.position}"+
+    "_#{model.profile.name.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
+    "_#{model.profile.surname.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
+    "_#{model.title.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
+    "_#{model.address.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
+
+    ".#{model.file.file.extension}""
   end
 
   #version :thumb do
