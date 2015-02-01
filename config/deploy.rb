@@ -35,7 +35,7 @@ task :copy_db, roles => :app do
 end
 task :copy_settings, roles => :app do
   app_db = "#{shared_path}/settings.rb"
-  run "ln -s #{app_db} #{release_path}/settings.rb"
+  run "ln -sf #{app_db} #{release_path}/settings.rb"
 end
 after "deploy:update_code", :copy_db, :copy_settings
 
