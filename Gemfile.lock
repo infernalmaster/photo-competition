@@ -11,6 +11,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.2.8)
+    babosa (1.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.2.2)
     capistrano (2.15.5)
@@ -126,6 +127,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babosa
   capistrano (~> 2.15.5)
   carrierwave
   carrierwave-datamapper
