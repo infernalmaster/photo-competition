@@ -74,7 +74,7 @@ post '/upload' do
   else
     status 406
     er_message = profile.errors.values.join(', ')
-    er_message || 'Перевірте розширення загружених файлів'
+    er_message || 'Перевірте розширення та розміри файлів'
   end
 
 end
@@ -89,4 +89,9 @@ post "/payment/:id" do
 
     # todo перейменувати всі зображення по шаблону і надіслати на пошту
   end
+end
+
+
+get '/success' do
+  haml :success
 end
