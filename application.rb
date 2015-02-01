@@ -31,6 +31,7 @@ post '/save_profile' do
   profile = Profile.new({
     name: params[:name],
     surname: params[:surname],
+    city: params[:city],
     address: params[:address],
     phone: params[:phone],
     email: params[:email],
@@ -66,7 +67,7 @@ post '/upload' do
     profile.photos << Photo.new({
       file:  params["image#{i}"],
       title: params["title#{i}"] || "фото #{i}",
-      position: number
+      position: position
     })
     position += 1
   end
@@ -104,7 +105,6 @@ post "/payment/:id" do
     })
   end
 end
-
 
 get '/success' do
   haml :success

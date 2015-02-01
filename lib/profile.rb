@@ -5,12 +5,13 @@ class Profile
   property :id,             Serial
   property :name,           String
   property :surname,        String
+  property :city,           String
   property :address,        String
   property :phone,          String
   property :email,          String
 
   property :site,           String
-  property :photo_alliance, String
+  property :photo_alliance, Boolean, default: false
   property :position,       String
   property :paid,           Boolean, default: false
 
@@ -20,7 +21,7 @@ class Profile
   has n, :photos
   validates_presence_of :photos, when: [ :with_photos ]
 
-  validates_presence_of :name, :surname, :address, :phone, :email
+  validates_presence_of :name, :surname, :city, :address, :phone, :email
 
   def payment_url
     base = request_params
@@ -33,13 +34,13 @@ class Profile
   protected
 
     def rate
-      650
+      if self.photo_alliance then 70 else 120 end
     end
 
     def request_params
       params = {
         version: 3,
-        public_key: 'public_key',
+        public_key: SiteConfig.pb_public_key,
         amount: rate,
         currency: 'UAH',
         description: self.id,
@@ -62,7 +63,7 @@ class Profile
     end
 
     def signature(data)
-      key = 'private_key' + data + 'private_key'
+      key = SiteConfig.pb_private_key + data + SiteConfig.pb_private_key
       key = Digest::SHA1.digest( key )
       Base64.encode64( key ).gsub("\n",'')
     end
