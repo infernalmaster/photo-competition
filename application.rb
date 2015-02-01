@@ -17,16 +17,17 @@ helpers do
   # add your helpers here
 end
 
+enable :sessions
+
 # root page
 get '/' do
-  @photos = Photo.all
-  @profile = Profile.first
   haml :root
 end
 
 
 post '/save_profile' do
-  # todo do not create new if id exists
+  Profile.get(session[:user_id]).try :destroy if session[:user_id]
+
   profile = Profile.new({
     name: params[:name],
     surname: params[:surname],
@@ -39,7 +40,8 @@ post '/save_profile' do
   })
 
   if profile.save
-    profile.id.to_s
+    session[:user_id] = profile.id.to_i
+    return
   else
     status 406
     profile.errors.values.join(', ')
@@ -47,23 +49,32 @@ post '/save_profile' do
 
 end
 
-post '/upload/:id' do
+post '/upload' do
 
-  profile = Profile.get params[:id].to_i
+  profile = Profile.get session[:user_id]
+
+  if !profile
+    status 406
+    return 'Не знайдено профіль'
+  end
+
   profile.photos = []
 
   5.times do |i|
+    next if !params["image#{i}"]
     profile.photos << Photo.new({
       file:  params["image#{i}"],
       title: params["title#{i}"]
     })
   end
 
-  if profile.save
+  if profile.save(:with_photos)
+    session.delete(:user_id)
     profile.payment_url
   else
     status 406
-    photo.errors.values.join(', ')
+    er_message = profile.errors.values.join(', ')
+    er_message || 'Перевірте розширення загружених файлів'
   end
 
 end
@@ -75,5 +86,7 @@ post "/payment/:id" do
   if profile.signature_valid?( params[:signature], params[:data] )
     profile.paid = true
     profile.save
+
+    # todo перейменувати всі зображення по шаблону і надіслати на пошту
   end
 end

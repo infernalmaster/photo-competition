@@ -3,7 +3,7 @@ require 'rmagick'
 class ImageUploader < CarrierWave::Uploader::Base
   attr_reader :geometry
 
-  include CarrierWave::RMagick
+  #include CarrierWave::RMagick
   storage :file
 
   def store_dir
@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jpg jpeg gif png bmp)
+    %w(jpg jpeg JPG JPEG)
   end
   process :get_geometry
 
@@ -26,8 +26,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{model.profile.name}_#{model.profile.name.surname}_#{model.title}.{model.file.file.extension}"
   end
 
-  version :thumb do
-    process :resize_to_fill => [100,74]
-  end
+  #version :thumb do
+  #  process :resize_to_fill => [100,74]
+  #end
 
 end

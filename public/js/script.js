@@ -163,17 +163,13 @@ function initTakePart() {
 
 
     // profile form
-    var $profileForm = $('.js-profile-form'),
-        profileId;
-
+    var $profileForm = $('.js-profile-form');
     $profileForm.validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
     $('.js-send-profile').click(function() {
         if ($profileForm.validationEngine('validate',  {promptPosition : "topRight:-150,0", scrollOffset: 220})) {
             $.post('/save_profile', $profileForm.serialize()).then(
                 function(response) {
                     activateStep(2);
-                    profileId = response;
-                    console.log(response);
                 },
                 function(xhr) {
                     alert('Сталася помилка: ' + xhr.responseText);
@@ -183,39 +179,71 @@ function initTakePart() {
     });
 
 
+    // just for debug
+    $showTakePartContent.addClass('active');
+    $takePartContent.addClass('active');
+    activateStep(1);
 
+    $('.js-img-input').change(function() {
+        if (!this.files || !this.files[0]) { return; }
 
-    var $imageForm = $('.js-images-form');
+        var $el = $(this),
+            file = this.files[0],
+            reader = new FileReader(),
+            image  = new Image();
 
-    $('.js-send-photos').click(function() {
+        reader.onload = function(_file) {
+            image.onload = function() {
+                var w = this.width,
+                    h = this.height,
+                    t = file.type,                           // ext only: // file.type.split('/')[1],
+                    n = file.name,
+                    s = ~~(file.size/1024) +'KB';
 
-        $.ajax( {
-            url: '/upload/' + profileId,
-            type: 'POST',
-            data: new FormData( $imageForm[0] ),
-            processData: false,
-            contentType: false
-        } ).then(
-            function(response) {
-
-
-                //activateStep(3);
-
-                document.location.href = response;
-                //$profileIdInput.val(response);
-                console.log(response);
-            },
-            function(xhr) {
-                alert('Сталася помилка: ' + xhr.responseText);
-            }
-        );
-
-
+                if (file.type !== 'image/jpeg') {
+                    return alert('тільки файли з розширенням jpeg aбо jpg');
+                }
+                if (this.width > 2400 || this.height > 2400) {
+                    $el.parent().find('.js-img-preview').prop('src', this.src );
+                    $el.parent().find('.js-img-title').val(n.split('.')[0]);
+                } else {
+                    $el.val('');
+                    alert('мінімум 2400 px по довшій стороні');
+                }
+            };
+            image.onerror = function() {
+                alert('тільки файли з розширенням jpeg aбо jpg');
+            };
+            image.src    = _file.target.result;              // url.createObjectURL(file);
+        };
+        reader.readAsDataURL(file);
     });
 
-    //$('.js-send-photos').click(function() {
-    //    activateStep(3);
-    //});
+    var $imageForm = $('.js-images-form');
+    $('.js-send-photos').click(function() {
+
+        //if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
+        //    $imageForm.submit();
+        //}
+
+        if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: new FormData($imageForm[0]),
+                processData: false,
+                contentType: false
+            }).then(
+                function (response) {
+                    document.location.href = response;
+                },
+                function (xhr) {
+                    alert('Сталася помилка: ' + xhr.responseText);
+                }
+            );
+        }
+    });
+
 
     $('.js-back-from-profile').click(function() {
         activateStep(0);

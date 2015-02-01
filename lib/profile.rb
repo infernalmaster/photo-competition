@@ -18,6 +18,7 @@ class Profile
   property :updated_at,     DateTime
 
   has n, :photos
+  validates_presence_of :photos, when: [ :with_photos ]
 
   validates_presence_of :name, :surname, :address, :phone, :email
 

@@ -19,16 +19,16 @@
                 "minSize": {
                     "regex": "none",
                     "alertText": "* Мінімум ",
-                    "alertText2": " символів(а)"
+                    "alertText2": " символів"
                 },
                 "maxSize": {
                     "regex": "none",
                     "alertText": "* Максимум ",
-                    "alertText2": " символа(ов)"
+                    "alertText2": " символів"
                 },
                 "groupRequired": {
                     "regex": "none",
-                    "alertText": "* Вы должны заполнить одно из следующих полей"
+                    "alertText": "* Ви повинні заповнити хоча б одне з цих полів"
                 },
                 "min": {
                     "regex": "none",

@@ -45,7 +45,7 @@ h4{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 999;
     background: white;
 }
 
@@ -357,12 +357,42 @@ input[type="text"]:focus, input[type="email"]:focus {
 
 
 /* step upload photos */
-.prewiev{
+.preview {
+    display: block;
+    cursor: pointer;
     width: 300px;
     height: 300px;
-    background:#d7d7d7;
+    background:#d7d7d7 url("/images/upload.png") no-repeat center center;
     text-align: center;
+    position: relative;
 }
+    .preview span {
+        padding-top: 230px;
+        font-weight: 700;
+        font-size: 14px;
+        color: #7f7f7f;
+        display: block;
+    }
+
+    .preview img {
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: block;
+    }
+    .preview-image-input {
+        visibility: hidden;
+        height: 0;
+        position: absolute;
+        /*display: none;*/
+    }
+
+
 .uploadform{
 	float: left;
 	padding: 20px 10px 10px 10px;
@@ -375,19 +405,8 @@ input[type="text"]:focus, input[type="email"]:focus {
 .clear{
 	clear: both;
 }
-.prewiev span{
-	font-weight: 700;
-	font-size: 14px;
-	color: #7f7f7f;
-	display: block;
-}
 
-.uploadform img{
-	position: relative;
-	margin: auto;
-	display: block;
-	padding: 74px 0 45px 0;
-}
+
 .uploadwrap p{
 	text-align: center;
 	position: relative;
@@ -396,7 +415,6 @@ input[type="text"]:focus, input[type="email"]:focus {
 	font-weight: 400;
 	font-size: 14px;
 	color: #7f7f7f;
-
 }
 
 
@@ -875,4 +893,86 @@ body.rtl .formError .formErrorArrow {
     width: 1px;
     border: none;
     background: #ddd;
+}
+
+
+
+
+
+/* progress bar */
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #29d;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+}
+
+.pace .pace-progress-inner {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+    opacity: 1.0;
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -moz-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    -o-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}
+
+.pace .pace-activity {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 15px;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 10px;
+    -webkit-animation: pace-spinner 400ms linear infinite;
+    -moz-animation: pace-spinner 400ms linear infinite;
+    -ms-animation: pace-spinner 400ms linear infinite;
+    -o-animation: pace-spinner 400ms linear infinite;
+    animation: pace-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes pace-spinner {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes pace-spinner {
+    0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes pace-spinner {
+    0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes pace-spinner {
+    0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes pace-spinner {
+    0% { transform: rotate(0deg); transform: rotate(0deg); }
+    100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
