@@ -66,7 +66,7 @@ post '/upload' do
     profile.photos << Photo.new({
       file:  params["image#{i}"],
       title: params["title#{i}"],
-      position: number
+      position: position
     })
     position += 1
   end
