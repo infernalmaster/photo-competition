@@ -29,7 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     "_#{model.title.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
     "_#{model.address.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"+
 
-    ".#{model.file.file.extension}""
+    ".#{model.file.file.extension}"
   end
 
   #version :thumb do
