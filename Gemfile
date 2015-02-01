@@ -13,6 +13,7 @@ gem 'haml'
 gem 'carrierwave'
 gem 'carrierwave-datamapper'
 gem 'rmagick'
+gem 'babosa'
 group :production do
   gem 'unicorn'
 end
