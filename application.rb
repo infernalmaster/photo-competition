@@ -82,15 +82,26 @@ post '/upload' do
 
 end
 
-
-
 post "/payment/:id" do
   profile = Profile.get params[:id].to_i
   if profile.signature_valid?( params[:signature], params[:data] )
     profile.paid = true
     profile.save
-
-    # todo перейменувати всі зображення по шаблону і надіслати на пошту
+    @status = JSON.decode( Base64.decode64( params[:data] ) )[:status]
+    Pony.mail({
+      to: 'you@example.com',
+      html_body: ( haml :email ),
+      via: :smtp,
+      via_options: {
+        address:               'smtp.gmail.com',
+        port:                  '587',
+        enable_starttls_auto:  true,
+        user_name:             'user',
+        password:              'password',
+        authentication:        :plain, # :plain, :login, :cram_md5, no auth by default
+        domain:                "localhost.localdomain" # the HELO domain provided by the client to the server
+      }
+    })
   end
 end
 

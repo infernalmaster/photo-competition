@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'carrierwave-datamapper'
 gem 'rmagick'
 gem 'babosa'
+gem 'pony'
 group :production do
   gem 'unicorn'
 end
