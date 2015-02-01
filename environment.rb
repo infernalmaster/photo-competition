@@ -16,13 +16,11 @@ require 'babosa'
 
 require 'sinatra' unless defined?(Sinatra)
 
+
+require './settings.rb'
+
 configure do
-  SiteConfig = OpenStruct.new(
-                 title: 'П’ята бієнале імені Степана Назаренка',
-                 description: 'Фотопортрет — національний конкурс в жанрі фотопортретистики, що проходить в режимі бієнале. Мета конкурсу — продовження та розвиток кращих традицій української портретної фотографії',
-                 url_base: 'http://photoportrait.org.ua/',
-                 fb_url: 'https://www.facebook.com/photoportraitcontest'
-               )
+  SiteConfig = OpenStruct.new(SETTINGS)
 
   # load models
   $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")

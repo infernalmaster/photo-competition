@@ -40,7 +40,7 @@ class Profile
     def request_params
       params = {
         version: 3,
-        public_key: 'public_key',
+        public_key: SiteConfig.pb_public_key,
         amount: rate,
         currency: 'UAH',
         description: self.id,
@@ -63,7 +63,7 @@ class Profile
     end
 
     def signature(data)
-      key = 'private_key' + data + 'private_key'
+      key = SiteConfig.pb_private_key + data + SiteConfig.pb_private_key
       key = Digest::SHA1.digest( key )
       Base64.encode64( key ).gsub("\n",'')
     end
