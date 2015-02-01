@@ -33,7 +33,11 @@ task :copy_db, roles => :app do
   app_db = "#{shared_path}/production.db"
   run "ln -s #{app_db} #{release_path}/production.db"
 end
-after "deploy:update_code", :copy_db
+task :copy_settings, roles => :app do
+  app_db = "#{shared_path}/settings.rb"
+  run "ln -s #{app_db} #{release_path}/settings.rb"
+end
+after "deploy:update_code", :copy_db, :copy_settings
 
 # - for unicorn - #
 namespace :deploy do
