@@ -180,9 +180,9 @@ function initTakePart() {
 
 
     // just for debug
-    //$showTakePartContent.addClass('active');
-    //$takePartContent.addClass('active');
-    //activateStep(2);
+    $showTakePartContent.addClass('active');
+    $takePartContent.addClass('active');
+    activateStep(1);
 
     $('.js-img-input').change(function() {
         if (!this.files || !this.files[0]) { return; }
@@ -222,22 +222,26 @@ function initTakePart() {
     var $imageForm = $('.js-images-form');
     $('.js-send-photos').click(function() {
 
-        // todo потрібно валідувати кількість зображень, бо зараз можна засейвити без зображень взагалі
-        $('.js-images-form').submit();
-        //$.ajax( {
-        //    url: '/upload',
-        //    type: 'POST',
-        //    data: new FormData( $imageForm[0] ),
-        //    processData: false,
-        //    contentType: false
-        //} ).then(
-        //    function(response) {
-        //        document.location.href = response;
-        //    },
-        //    function(xhr) {
-        //        alert('Сталася помилка: ' + xhr.responseText);
-        //    }
-        //);
+        //if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
+        //    $imageForm.submit();
+        //}
+
+        if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: new FormData($imageForm[0]),
+                processData: false,
+                contentType: false
+            }).then(
+                function (response) {
+                    document.location.href = response;
+                },
+                function (xhr) {
+                    alert('Сталася помилка: ' + xhr.responseText);
+                }
+            );
+        }
     });
 
 

@@ -5,5 +5,7 @@ class Photo
   property :title,       String
   belongs_to :profile  # defaults to :required => true
 
+  validates_presence_of :file
+
   mount_uploader :file, ImageUploader
 end

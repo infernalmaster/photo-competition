@@ -26,7 +26,7 @@ end
 
 
 post '/save_profile' do
-  Profile.get(session[:user_id]).destroy if session[:user_id]
+  Profile.get(session[:user_id]).try :destroy if session[:user_id]
 
   profile = Profile.new({
     name: params[:name],
@@ -52,23 +52,29 @@ end
 post '/upload' do
 
   profile = Profile.get session[:user_id]
+
+  if !profile
+    status 406
+    return 'Не знайдено профіль'
+  end
+
   profile.photos = []
 
   5.times do |i|
+    next if !params["image#{i}"]
     profile.photos << Photo.new({
       file:  params["image#{i}"],
       title: params["title#{i}"]
     })
   end
 
-  # todo коли при валідації зображень станеться помилка то профіль всервно збережеться
-  # тому потрібно це десь врахувати
-  if profile.save
+  if profile.save(:with_photos)
     session.delete(:user_id)
-    redirect profile.payment_url
+    profile.payment_url
   else
     status 406
-    profile.errors.values.join(', ')
+    er_message = profile.errors.values.join(', ')
+    er_message || 'Перевірте розширення загружених файлів'
   end
 
 end
