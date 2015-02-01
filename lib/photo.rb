@@ -3,9 +3,10 @@ class Photo
   include DataMapper::Resource
   property :id,          Serial
   property :title,       String
+  property :position,    Integer
   belongs_to :profile  # defaults to :required => true
 
-  validates_presence_of :file
+  validates_presence_of :file, :position
 
   mount_uploader :file, ImageUploader
 

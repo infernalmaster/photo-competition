@@ -60,12 +60,15 @@ post '/upload' do
 
   profile.photos = []
 
+  position = 1
   5.times do |i|
     next if !params["image#{i}"]
     profile.photos << Photo.new({
       file:  params["image#{i}"],
-      title: params["title#{i}"]
+      title: params["title#{i}"],
+      position: number
     })
+    position += 1
   end
 
   if profile.save(:with_photos)
