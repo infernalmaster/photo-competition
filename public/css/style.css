@@ -326,23 +326,25 @@ h4{
     vertical-align: top;
 }
 
-.form legend{
+.form legend {
 	font-weight: 700;
 	font-size: 18px;
 	color: #b7b7b7;
 	text-transform: uppercase;
 }
 
-.inputfield{
+.inputfield {
 	padding-top: 20px;
 }
-.inputfield span{
+.inputfield label {
 	font-family: 'Roboto Condensed',sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	display: block;
 	color: #7f7f7f;
 }
+.with-pointer { cursor: pointer; }
+.with-pointer input { cursor: pointer; }
 input[type="text"], input[type="email"] {
 	width: 354px;
 	height: 40px;

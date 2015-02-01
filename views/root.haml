@@ -87,32 +87,37 @@
           %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
 
           .inputfield
-            %span Ім’я
+            %label Ім’я
             %input{type: "text", name: "name", class: "validate[required,maxSize[50]]"}
           .inputfield
-            %span Прізвище
+            %label Прізвище
             %input{type: "text", name: "surname", class: "validate[required,maxSize[50]]"}
           .inputfield
-            %span Адреса
+            %label Місто
+            %input{type: "text", name: "city", class: "validate[required,maxSize[50]]"}
+          .inputfield
+            %label Адреса
             %input{type: "text", name: "address", class: "validate[required,maxSize[50]]"}
           .inputfield
-            %span Телефон
+            %label Телефон
             %input{type: "text", name: "phone", class: "validate[required,maxSize[50]]"}
           .inputfield
-            %span E-mail
+            %label E-mail
             %input{type: "email", name: "email", class: "validate[required,custom[email],maxSize[50]]"}
 
         %fieldset
           %legend ДОДАТКОВО
           .inputfield
-            %span Веб сайт
+            %label Веб сайт
             %input{type: "text", name: "site", class: "validate[maxSize[50]]"}
           .inputfield
-            %span Приналежність до фотооб’єднання
-            %input{type: "text", name: "photo_alliance", class: "validate[maxSize[50]]"}
-          .inputfield
-            %span Посада
+            %label Посада
             %input{type: "text", name: "position", class: "validate[maxSize[50]]"}
+          .inputfield
+            %label.with-pointer
+              %input{type: "checkbox", name: "photo_alliance", value: '1'}
+              Член НСФХУ
+
 
       %button.btn.btn--back.js-back-from-profile Назад
       %button.btn.btn--forward.btn--forward-short.js-send-profile Продовжити
@@ -129,7 +134,7 @@
                 %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
                 %img.preview_image.js-img-preview
               .inputfield
-                %span Назва
+                %label Назва
                 %input.js-img-title{name: "title#{i}", type: "text", class: "validate[maxSize[50]]"}
 
       .clear
