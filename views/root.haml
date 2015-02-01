@@ -1,27 +1,3 @@
--#-# begin comment me
--#%h2 html5 upload
--#%form#form1{:action => "Upload.aspx", :enctype => "multipart/form-data", :method => "post"}
--#  .row
--#    %label{:for => "fileToUpload"} Select a File to Upload
--#    %br/
--#    %input#fileToUpload{:name => "image", :onchange => "fileSelected();", type: "file"}/
--#  #fileName
--#  #fileSize
--#  #fileType
--#  .row
--#    %input{:onclick => "uploadFile()", type: "button", :value => "Upload"}/
--#  #progressNumber
--#
--#
--#
--#- @photos.each do |photo|
--#  %div= photo.file
--#%h2 form upload
--#%form{:action => "/upload", :enctype => "multipart/form-data", :method => "post"}
--#  %p
--#    %input{:name => "image", type: "file"}
--#  %input{type: "submit", :value => "Take Note!"}
--#-# end comment me
 .wrapper_menu
   .menu
     .logo.menu-transition

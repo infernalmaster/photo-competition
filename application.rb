@@ -65,8 +65,8 @@ post '/upload' do
     next if !params["image#{i}"]
     profile.photos << Photo.new({
       file:  params["image#{i}"],
-      title: params["title#{i}"],
-      position: position
+      title: params["title#{i}"] || "фото #{i}",
+      position: number
     })
     position += 1
   end
