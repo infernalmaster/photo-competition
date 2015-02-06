@@ -175,7 +175,7 @@ h4{
 }
     .btn:hover{  background: #776320;  }
     .btn.active {  background: #5a4b18;  }
-
+    .btn:disabled { background: #c3c3c3; cursor: default; }
 
 
 

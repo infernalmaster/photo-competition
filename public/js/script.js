@@ -163,15 +163,21 @@ function initTakePart() {
 
 
     // profile form
-    var $profileForm = $('.js-profile-form');
+    var $profileForm = $('.js-profile-form'),
+        $profileFormBtn = $('.js-send-profile');
+
     $profileForm.validationEngine('attach',  {promptPosition : "topRight:-150,0", scrollOffset: 220});
-    $('.js-send-profile').click(function() {
+    $profileFormBtn.click(function() {
         if ($profileForm.validationEngine('validate',  {promptPosition : "topRight:-150,0", scrollOffset: 220})) {
+            $profileFormBtn.prop("disabled", true);
+
             $.post('/save_profile', $profileForm.serialize()).then(
                 function(response) {
+                    $profileFormBtn.prop("disabled", false);
                     activateStep(2);
                 },
                 function(xhr) {
+                    $profileFormBtn.prop("disabled", false);
                     alert('Сталася помилка: ' + xhr.responseText);
                 }
             );
@@ -219,14 +225,17 @@ function initTakePart() {
         reader.readAsDataURL(file);
     });
 
-    var $imageForm = $('.js-images-form');
-    $('.js-send-photos').click(function() {
+    var $imageForm = $('.js-images-form'),
+        $photosFormBtn = $('.js-send-photos');
+    $photosFormBtn.click(function() {
 
         //if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
         //    $imageForm.submit();
         //}
 
         if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
+            $photosFormBtn.prop("disabled", true);
+
             $.ajax({
                 url: '/upload',
                 type: 'POST',
@@ -238,6 +247,7 @@ function initTakePart() {
                     document.location.href = response;
                 },
                 function (xhr) {
+                    $photosFormBtn.prop("disabled", false);
                     alert('Сталася помилка: ' + xhr.responseText);
                 }
             );
