@@ -22,7 +22,7 @@ group :development do
   gem 'capistrano', '~> 2.15.5'
 end
 
-group :test do
+#group :test do
   gem 'rspec', :require => 'spec'
   gem 'rack-test'
-end
+#end
