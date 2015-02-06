@@ -92,12 +92,17 @@
           .inputfield
             %label Прізвище
             %input{type: "text", name: "surname", class: "validate[required,maxSize[50]]"}
+
           .inputfield
-            %label Місто
+            %label Поштовий індекс
+            %input{type: "text", name: "zip_code", class: "validate[required,custom[zip]]"}
+          .inputfield
+            %label Населений пункт
             %input{type: "text", name: "city", class: "validate[required,maxSize[50]]"}
           .inputfield
-            %label Адреса
+            %label Вулиця, будинок, квартира
             %input{type: "text", name: "address", class: "validate[required,maxSize[50]]"}
+
           .inputfield
             %label Телефон
             %input{type: "text", name: "phone", class: "validate[required,maxSize[50]]"}

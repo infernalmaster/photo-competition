@@ -5,6 +5,8 @@ class Profile
   property :id,             Serial
   property :name,           String
   property :surname,        String
+
+  property :zip_code,       String
   property :city,           String
   property :address,        String
   property :phone,          String
@@ -21,7 +23,7 @@ class Profile
   has n, :photos
   validates_presence_of :photos, when: [ :with_photos ]
 
-  validates_presence_of :name, :surname, :city, :address, :phone, :email
+  validates_presence_of :name, :surname, :zip_code, :city, :address, :phone, :email
 
   def payment_url
     base = request_params

@@ -75,7 +75,7 @@
                 },
                 "integer": {
                     "regex": /^[\-\+]?\d+$/,
-                    "alertText": "* Не целое число"
+                    "alertText": "* Не ціле число"
                 },
                 "number": {
                     // Number, including positive, negative, and floating decimal. credit: orefalo
@@ -96,7 +96,7 @@
                 },
                 "onlyNumberSp": {
                     "regex": /^[0-9\ ]+$/,
-                    "alertText": "* Только числа"
+                    "alertText": "* Тільки числа"
                 },
                 "onlyLetterSp": {
                     "regex": /^[a-zA-Z\u0400-\u04FF\ \']+$/,
@@ -126,6 +126,10 @@
                 },
                 "validate2fields": {
                     "alertText": "* Пожалуйста, введите HELLO"
+                },
+                "zip": {
+                    "regex":/^\d{5}$|^\d{5}-\d{4}$/,
+                    "alertText":"* Невалідний поштовий індекс"
                 }
             };
 

@@ -31,6 +31,7 @@ post '/save_profile' do
   profile = Profile.new({
     name: params[:name],
     surname: params[:surname],
+    zip_code: params[:zip_code],
     city: params[:city],
     address: params[:address],
     phone: params[:phone],
