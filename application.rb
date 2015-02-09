@@ -93,7 +93,7 @@ post "/payment/:id" do
     Pony.mail({
       from: SiteConfig.smtp_from,
       to: SiteConfig.smtp_to,
-      subject: 'Реєстрація',
+      subject: "Реєстрація #{@profile.name} #{@profile.surname}",
       html_body: ( haml :email ),
       via: :smtp,
       via_options: {
