@@ -89,7 +89,7 @@ post "/payment/:id" do
   if @profile.signature_valid?( params[:signature], params[:data] )
     @profile.paid = true
     @profile.save
-    @status = JSON.parse( Base64.decode64( params[:data] ) )[:status]
+    @status = JSON.parse( Base64.decode64( params[:data] ) )['status']
     Pony.mail({
       from: SiteConfig.smtp_from,
       to: SiteConfig.smtp_to,
