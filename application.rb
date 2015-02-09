@@ -91,8 +91,8 @@ post "/payment/:id" do
     @profile.save
     @status = JSON.parse( Base64.decode64( params[:data] ) )[:status]
     Pony.mail({
-      from: SiteConfig.smpt_from,
-      to: SiteConfig.smpt_to,
+      from: SiteConfig.smtp_from,
+      to: SiteConfig.smtp_to,
       subject: 'Реєстрація',
       html_body: ( haml :email ),
       via: :smtp,
