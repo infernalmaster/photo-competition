@@ -33,6 +33,10 @@ class Profile
       "&signature=#{ URI::encode( signature( base ) ) }"
   end
 
+  def signature_valid?(recieved_signature, recieved_data)
+    signature(recieved_data) == recieved_signature
+  end
+  
   protected
 
     def rate
@@ -45,7 +49,7 @@ class Profile
         public_key: SiteConfig.pb_public_key,
         amount: rate,
         currency: 'UAH',
-        description: self.id,
+        description: "#{self.name.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s} #{self.surname.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}",
         language: 'ru',
         order_id: order_id,
         server_url: "#{SiteConfig.url_base}/payment/#{self.id}",
@@ -58,10 +62,6 @@ class Profile
 
     def order_id
       Time.now.to_s.parameterize + self.id.to_s
-    end
-
-    def signature_valid?(recieved_signature, recieved_data)
-      signature(recieved_data) == recieved_signature
     end
 
     def signature(data)
