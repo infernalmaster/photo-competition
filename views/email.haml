@@ -4,28 +4,42 @@
     %meta{ content: "text/html; charset=utf-8", :"http-equiv" => "Content-Type" }
     %title Test
   %body
-    p
-      ім'я
-      =
-    p
-      прізвище
-      =
+    %p
+      ім'я:
+      = @profile.name
+    %p
+      прізвище:
+      = @profile.surname
 
-    p
-      Адреса
-      =
-    p
-      Телефон
-      =
-    p
-      E-mail
-      =
-    p
-      Веб сайт
-      =
-    p
-      Посада
-      =
-    
+    %p
+      Адреса:
+      = @profile.zip_code
+      ,
+      = @profile.city
+      ,
+      = @profile.address
 
-    = @status
+    %p
+      Телефон:
+      = @profile.phone
+    %p
+      E-mail:
+      = @profile.email
+    %p
+      Веб сайт:
+      = @profile.site
+    %p
+      Посада:
+      = @profile.position
+    %p
+      Член НСФХУ:
+      = @profile.photo_alliance ? 'Так': 'Ні'
+    %p
+      Статус оплати:
+      = @status
+
+    = @profile.photos.each do |photo|
+      %a{href: "#{SiteConfig.url_base}#{photo.file.url}"}
+        %p
+          %img{src: "#{SiteConfig.url_base}#{photo.file.url}"}
+        %p= photo.title

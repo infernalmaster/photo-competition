@@ -13,6 +13,7 @@ require 'carrierwave/datamapper'
 require 'rmagick'
 require 'json'
 require 'babosa'
+require 'pony'
 
 require 'sinatra' unless defined?(Sinatra)
 

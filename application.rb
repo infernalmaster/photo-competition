@@ -85,23 +85,25 @@ post '/upload' do
 end
 
 post "/payment/:id" do
-  profile = Profile.get params[:id].to_i
-  if profile.signature_valid?( params[:signature], params[:data] )
-    profile.paid = true
-    profile.save
+  @profile = Profile.get params[:id].to_i
+  if @profile.signature_valid?( params[:signature], params[:data] )
+    @profile.paid = true
+    @profile.save
     @status = JSON.decode( Base64.decode64( params[:data] ) )[:status]
     Pony.mail({
-      to: 'you@example.com',
+      from: SiteConfig.smpt_from,
+      to: SiteConfig.smpt_to,
+      subject: 'Реєстрація',
       html_body: ( haml :email ),
       via: :smtp,
       via_options: {
-        address:               'smtp.gmail.com',
-        port:                  '587',
+        address:               SiteConfig.smtp_server,
+        port:                  SiteConfig.smtp_port,
         enable_starttls_auto:  true,
-        user_name:             'user',
-        password:              'password',
+        user_name:             SiteConfig.smtp_user_name,
+        password:              SiteConfig.smtp_password,
         authentication:        :plain, # :plain, :login, :cram_md5, no auth by default
-        domain:                "localhost.localdomain" # the HELO domain provided by the client to the server
+        domain:                SiteConfig.smtp_domain # the HELO domain provided by the client to the server
       }
     })
   end
