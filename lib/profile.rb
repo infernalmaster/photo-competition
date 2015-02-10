@@ -36,7 +36,7 @@ class Profile
   def signature_valid?(recieved_signature, recieved_data)
     signature(recieved_data) == recieved_signature
   end
-  
+
   protected
 
     def rate
@@ -54,7 +54,7 @@ class Profile
         order_id: order_id,
         server_url: "#{SiteConfig.url_base}/payment/#{self.id}",
         result_url: SiteConfig.url_base,
-        sandbox: 1
+        sandbox: SiteConfig.sandbox
       }
       json = JSON.generate( params )
       Base64.encode64( json ).gsub("\n",'')
