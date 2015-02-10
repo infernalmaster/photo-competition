@@ -985,3 +985,9 @@ body.rtl .formError .formErrorArrow {
     0% { transform: rotate(0deg); transform: rotate(0deg); }
     100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
+
+.notice {
+  padding-top:20px;
+  clear: both;
+  font-size: 12px;
+}
