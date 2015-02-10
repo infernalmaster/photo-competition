@@ -515,7 +515,7 @@ input[type="text"]:focus, input[type="email"]:focus {
 	text-transform: uppercase;
 }
 .awards{
-	
+
 }
 .sponsors img{
     margin: 20px 30px 10px 29px;
@@ -532,7 +532,7 @@ input[type="text"]:focus, input[type="email"]:focus {
 	text-transform: uppercase;
 	width: 220px;
 	padding-top: 30px;
-	
+
 }
 
 .partner{
@@ -550,7 +550,7 @@ input[type="text"]:focus, input[type="email"]:focus {
 .partnerlist{
 	padding-top: 30px;
 	position: relative;
-	
+
 }
 
 .fix{
@@ -573,9 +573,10 @@ input[type="text"]:focus, input[type="email"]:focus {
 .member{
 	float: left;
 	margin: 0 0px 0 64px;
+  text-decoration: none;
 }
 .member img{
-	
+
 	 -moz-border-radius: 200px;
     -webkit-border-radius: 200px;
     -o-border-radius: 200px;
@@ -596,7 +597,7 @@ input[type="text"]:focus, input[type="email"]:focus {
 }
 .prev{
 	background: url('/images/arrows_sprite.png') no-repeat -40px 0;
-	width: 18px; 
+	width: 18px;
 	height: 29px;
 	z-index: 3;
 	opacity: 0.5;
@@ -623,8 +624,8 @@ input[type="text"]:focus, input[type="email"]:focus {
 	opacity: 1;
 };
 .slider.member:first-child{
-    padding-left: 64px;   
-} 
+    padding-left: 64px;
+}
 .jury p{
 	font-weight: 700;
 	font-size: 18px;
