@@ -38,7 +38,9 @@ post '/save_profile' do
     email: params[:email],
     site: params[:site],
     photo_alliance: params[:photo_alliance],
-    position: params[:position]
+    position: params[:position],
+    skype: params[:skype],
+    facebook: params[:facebook]
   })
 
   if profile.save

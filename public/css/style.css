@@ -505,11 +505,12 @@ input[type="text"]:focus, input[type="email"]:focus {
 
 
 
-.awards h3,.sponsors h3,.partners h3 {
+.awards h3,.sponsors h3,.partners h3, .medals h3 {
 	color: #5e5222;
 	position: relative;
-	margin: auto;
-	width: 200px;
+	/*margin: auto;*/
+	/*width: 200px;*/
+  text-align: center;
 	padding-top: 100px;
 	padding-bottom: 20px;
 	text-transform: uppercase;
@@ -698,7 +699,7 @@ padding-right: 20px;
 }
 
 
-.award{
+.award, .medal{
 	float: left;
 	position: relative;
 	width: 220px;
@@ -707,17 +708,24 @@ padding-right: 20px;
 	font-weight: 400;
 	font-size: 12px;
 }
+.medal {width: 140px;}
+.medals {
+  position: relative;
+  padding-bottom: 30px;
+}
 .awards{
 	position: relative;
 	padding-bottom: 30px;
 	height: 750px;
-}
-.award p{
-	padding-top: 20px;
+  clear: both;
 }
 .award img {
 	height: 200px;
 	width: 200px;
+}
+.medal img {
+  height: 130px;
+  width: 130px;
 }
 
 
@@ -990,4 +998,10 @@ body.rtl .formError .formErrorArrow {
   padding-top:20px;
   clear: both;
   font-size: 12px;
+}
+.padding100 {
+  padding-left:120px;
+}
+.center {
+  text-align: center
 }

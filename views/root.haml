@@ -49,12 +49,18 @@
           2. Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
           3. Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути навиліт.
           4. Не будуть подані на розгляд журі роботи, які раніше вже експонувалися на міжнародних фотосалонах і національних фотовиставках в Україні.
-          5. Плата за участь:
+          5. Плата за участь (благодійний внесок):
             — для українських учасників — 120 грн;
             — для членів НСФХУ — 70 грн;
             — для зарубіжних учасників — 7 €.
-          6. Нагороди виставки: медалі та дипломи ISF, медалі та дипломи Національної спілки фотохудожників України, призи та цінні подарунки від спонсорів та співорганізаторів і партнерів, спеціальні призи від родини Войцюків, ГО «Тепле місто», ГО «Форумс», газети «День», Amway.
-          7. Натискаючи «продовжити», ви погоджуєтеся з наступиними умовами:
+          6. Журі:
+            Гліб ВИШЕСЛАВСЬКИЙ, кандидат мистецтвознавства, НСХУ, ІПСМ — Київ
+            Ігор ГАЙДАЙ, фотограф, «Гайдай студія» — Київ
+            Ростислав КОНДРАТ, AFIAP, AISF, Hon. FNPAS, НСФХУ, нфк «Колумб» — Івано-Франківськ
+            Андрій НАЗАРЕНКО, архітектор, «N+K» — Івано-Франківськ
+            Тарас ПЕРУН, НСФХУ, нфк «Позитив» — Чернівці
+          7. Нагороди виставки: медалі та дипломи ISF, медалі та дипломи Національної спілки фотохудожників України, призи та цінні подарунки від спонсорів та співорганізаторів і партнерів, спеціальні призи від родини Войцюків, ГО «Тепле місто», ГО «Форумс», газети «День», Amway.
+          8. Натискаючи «продовжити», ви погоджуєтеся з наступиними умовами:
             Мені належить виключне право на використання перелічених фоторобіт та виключне право дозволяти використання даних творів*.
             Згадані фотороботи не порушують прав фізичних осіб, які на них зображені.
             Стосовно зазначених робіт мною безкоштовно, безстроково та без умов надається оргкомітету П’ятої бієнале імені Степана НАЗАРЕНКА «ФОТОПОРТРЕТ 2015» дозвіл на:
@@ -102,8 +108,14 @@
             %label Веб сайт
             %input{type: "text", name: "site", class: "validate[maxSize[50]]"}
           .inputfield
-            %label Посада
-            %input{type: "text", name: "position", class: "validate[maxSize[50]]"}
+            %label Фотографічні титули і приналежність до фотооб'єднань
+            %input{type: "text", name: "position", class: "validate[maxSize[100]]"}
+          .inputfield
+            %label Skype
+            %input{type: "text", name: "skype", class: "validate[maxSize[50]]"}
+          .inputfield
+            %label Facebook
+            %input{type: "text", name: "facebook", class: "validate[maxSize[100]]"}
           .inputfield
             %label.with-pointer
               %input{type: "checkbox", name: "photo_alliance", value: '1'}
@@ -160,9 +172,87 @@
         %h4 Розсилка каталогів
 
 
+
+-#    sponsors
+.partners.wrapper
+  %h3 Організатори
+  .partnerlist.padding100
+    .partner
+      .partnerlogo
+        %a{href: "http://www.photospilka.com"}
+          %img{alt: "Національна спілка фотохудожників України", src: "/images/nsfhu.png"}
+        %p Національна спілка фотохудожників України
+    .partner
+      .partnerlogo
+        %a{href: "http://photocolumb.at.ua"}
+          %img{alt: "фотоклуб «Колумб»", src: "/images/columb.png"}
+        %p Народний фотоклуб «Колумб», Тисмениця
+    .partner
+      .partnerlogo
+        %a{href: "http://www.nshu.org.ua"}
+          %img{alt: "Національна спілка художників України", src: "/images/spu.jpg"}
+        %p Національна спілка художників України
+    %br/
+
+    .partner
+      .partnerlogo
+        %a{href: "http://www.if.gov.ua"}
+          %img{alt: "Управління культури, національностей та релігій Івано-Франківської облдержадміністрації", src: "/images/ifgov.png"}
+        %p Управління культури, національностей та релігій Івано-Франківської облдержадміністрації
+
+    .partner
+      .partnerlogo
+        %a{href: "http://www.mvk.if.ua"}
+          %img{alt: "Виконавчий комітет Івано-Франківської міської ради", src: "/images/mvk.jpg"}
+        %p Виконавчий комітет Івано-Франківської міської ради
+    .partner
+      .partnerlogo
+        %a{href: "http://kultura-tsm.at.ua"}
+          %img{alt: "Відділ культури Тисменицької райдержадміністрації", src: "/images/vkt.jpg", style:"height:100px"}
+        %p Відділ культури Тисменицької райдержадміністрації
+
+.partners.wrapper
+  .partnerlist.padding100
+    .partner
+
+      .partnerlogo
+        %a{href: "http://www.photospilka.com"}
+          %img{alt: "Національна спілка фотохудожників України", src: "/images/nsfhu.png"}
+        %p  Патронат 02/2015
+    .partner
+      .partnerlogo
+        %a{href: "http://www.euroeastculture.eu/ru/granted-projects/view-17.html"}
+          %img{alt: "say cheese", src: "/images/saychesee.png"}
+        %p В рамках Східного партнерства
+    .partner
+      .partnerlogo
+        %a{href: "http://www.image-sans-frontiere.com/"}
+          %img{alt: "ISF", src: "/images/isf.jpg"}
+        %p Label ISF 02/2015
 -#        awards
-.awards.wrapper#awards
+.medals.wrapper
   %h3 Нагороди
+  .medal
+    %img{alt: "", src: "/images/medals/ISF-gold.png"}/
+    %p Золота медаль ISF
+  .medal
+    %img{alt: "", src: "/images/medals/ISF-silver.png"}/
+    %p Срібна медаль ISF
+  .medal
+    %img{alt: "", src: "/images/medals/ISF-bronze.png"}/
+    %p Бронзова медаль ISF
+  .medal
+    %img{alt: "", src: "/images/medals/NSPAU-gold.png"}/
+    %p Золота медаль НСФХУ
+  .medal
+    %img{alt: "", src: "/images/medals/NSPAU-silver.png"}/
+    %p Срібна медаль НСФХУ
+  .medal
+    %img{alt: "", src: "/images/medals/NSPAU-bronze.png"}/
+    %p Бронзова медаль НСФХУ
+
+.awards.wrapper#awards
+  %h3 Призи
   .award
     %a{href: "http://www.prophoto.ua/products/tripod/pro/1343/"}
       %img{alt: "", src: "/images/aw_1.jpg"}/
@@ -194,53 +284,7 @@
 
   %p.notice *призовий фонд в процесі доукомплектації
 
--#    sponsors
-.partners.wrapper#partners
-  %h3 Організатори
-  .partnerlist
-    .partner
-      .partnerlogo
-        %a{href: "http://www.photospilka.com"}
-          %img{alt: "Національна спілка фотохудожників України", src: "/images/nsfhu.png"}
-        %p Національна спілка фотохудожників України
-    .partner
-      .partnerlogo
-        %a{href: "http://photocolumb.at.ua"}
-          %img{alt: "фотоклуб «Колумб»", src: "/images/columb.png"}
-        %p фотоклуб «Колумб»
-    .partner
-      .partnerlogo
-        %a{href: "http://www.if.gov.ua"}
-          %img{alt: "Управління культури, національностей та релігій Івано-Франківської облдержадміністрації", src: "/images/ifgov.png"}
-        %p Управління культури, національностей та релігій Івано-Франківської облдержадміністрації
-    .partner
-      .partnerlogo
-        %a{href: "http://www.mvk.if.ua"}
-          %img{alt: "Виконавчий комітет Івано-Франківської міської ради", src: "/images/mvk.jpg"}
-        %p Виконавчий комітет Івано-Франківської міської ради
-    %br/
-    .partner
-
-      .partnerlogo
-        %a{href: "http://kultura-tsm.at.ua"}
-          %img{alt: "Відділ культури Тисменицької райдержадміністрації", src: "/images/vkt.jpg", style:"height:100px"}
-        %p Відділ культури Тисменицької райдержадміністрації
-    .partner
-      .partnerlogo
-        %a{href: "http://www.nshu.org.ua"}
-          %img{alt: "Національна спілка художників України", src: "/images/spu.jpg"}
-        %p Національна спілка художників України
-    .partner
-      .partnerlogo
-        %a{href: "http://www.image-sans-frontiere.com/"}
-          %img{alt: "ISF", src: "/images/isf.jpg"}
-        %p ISF
-    .partner
-      .partnerlogo
-        %a{href: "http://www.euroeastculture.eu/ru/granted-projects/view-17.html"}
-          %img{alt: "say cheese", src: "/images/saychesee.png"}
-        %p say cheese
-.sponsors.wrapper
+.sponsors.wrapper.center#partners
   %h3 Спонсори
   %a{href: "http://www.slik.com.ua/"}
     %img{alt: "SLIK", src: "/images/slik.jpg", style: 'width:190px'}/
@@ -250,8 +294,18 @@
     %img{alt: "Manfrotto", src: "/images/manfrotto.png"}/
   %a{href: "http://strobist.ua/"}
     %img{alt: "Strobist.ua", src: "/images/strobist.png"}/
+  %a{href: "http://halytska.if.ua"}
+    %img{alt: "страхова компанія «Галицька»", src: "/images/gal.png"}
+  %a{href: "http://www.kuvert.com.ua"}
+    %img{alt: "Kuvert Ukraine", src: "/images/kuvert.jpg"}
   %a{href: "https://www.amway.ua/"}
     %img{alt: "Amway", src: "/images/amway.jpg"}/
+  %br/
+  %a{href: "#"}
+    %img{alt: "Фото-відео студія в ратуші", src: "/images/ratushi.jpg"}/
+  %a{href: "#"}
+    %img{alt: "прометей фото студія", src: "/images/prometey.jpg"}/
+
 .partners.wrapper
   %h3 Партнери
   .partnerlist
@@ -262,20 +316,9 @@
         %p Середовище «Тепле Місто»
     .partner
       .partnerlogo
-        %a{href: "http://www.ukrinform.ua/"}
-          %img{alt: "УКР інформ", src: "/images/ukrinform.png"}
-        %p УКР інформ
-    .partner
-      .partnerlogo
-        %a{href: "http://www.galicia.org.ua/"}
-          %img{alt: "Благодійна громадська Фундація імені короля Юрія", src: "/images/korolyuri.jpg"}
-        %p Благодійна громадська Фундація імені короля Юрія
-    .partner
-      .partnerlogo
-        %a{href: "http://www.kuvert.com.ua"}
-          %img{alt: "Kuvert Ukraine", src: "/images/kuvert.jpg"}
-        %p Kuvert Ukraine
-    %br/
+        %a{href: "http://forums.if.ua"}
+          %img{alt: "Мистецька формація «Форумс»", src: "/images/forums.png"}
+      %p Мистецька формація «Форумс»
     .partner
       .partnerlogo
         %a{href: "http://book-ye.com.ua"}
@@ -283,19 +326,32 @@
       %p «Є»
     .partner
       .partnerlogo
-        %a{href: "http://halytska.if.ua"}
-          %img{alt: "страхова компанія «Галицька»", src: "/images/gal.png"}
-      %p страхова компанія «Галицька»
+        %a{href: "http://www.galicia.org.ua/"}
+          %img{alt: "Благодійна громадська Фундація імені короля Юрія", src: "/images/korolyuri.jpg"}
+        %p Благодійна громадська Фундація імені короля Юрія
+.partners.wrapper
+  %h3 Інформаційна підтримка
+  .partnerlist
     .partner
       .partnerlogo
-        %a{href: "http://forums.if.ua"}
-          %img{alt: "Мистецька формація «Форумс»", src: "/images/forums.png"}
-      %p Мистецька формація «Форумс»
+        %a{href: "http://www.ukrinform.ua/"}
+          %img{alt: "УКР інформ", src: "/images/ukrinform.png"}
+        %p УКР інформ
     .partner
       .partnerlogo
         %a{href: "http://www.day.kiev.ua/uk"}
           %img{alt: "газета «День»", src: "/images/den.png"}
       %p газета «День»
+    .partner
+      .partnerlogo
+        %a{href: "http://www.galychyna.if.ua"}
+          %img{alt: "газета «Галичина»", src: "/images/gal.jpg"}
+      %p газета «Галичина»
+    .partner
+      .partnerlogo
+        %a{href: "http://www.ap.if.ua"}
+          %img{alt: "Афіша прикарпаття", src: "/images/afisha.jpg"}
+      %p Афіша прикарпаття
     %br/
     .partner
       .partnerlogo
@@ -304,9 +360,9 @@
       %p ФОТОАФИША
     .partner
       .partnerlogo
-        %a{href: "http://dphotographer.com.ua"}
-          %img{alt: "Photographer", src: "/images/photographer.png"}
-      %p Photographer
+        %a{href: "http://civicua.org/main/index.html"}
+          %img{alt: "Громадський простір", src: "/images/gromad.jpg"}
+      %p Громадський простір
     .partner
       .partnerlogo
         %a{href: "http://altera.tv"}
@@ -314,26 +370,16 @@
       %p altera tv
     .partner
       .partnerlogo
-        %a{href: "http://www.ap.if.ua"}
-          %img{alt: "Афіша прикарпаття", src: "/images/afisha.jpg"}
-      %p Афіша прикарпаття
+        %a{href: "http://dphotographer.com.ua"}
+          %img{alt: "Photographer", src: "/images/photographer.png"}
+      %p Photographer
 
     %br/
-    .partner
-      .partnerlogo
-        %a{href: "http://civicua.org/main/index.html"}
-          %img{alt: "Громадський простір", src: "/images/gromad.jpg"}
-      %p Громадський простір
     .partner
       .partnerlogo
         %a{href: "http://artes.in.ua"}
           %img{alt: "Artes", src: "/images/artes.jpg"}
       %p Artes
-    .partner
-      .partnerlogo
-        %a{href: "http://www.galychyna.if.ua"}
-          %img{alt: "газета «Галичина»", src: "/images/gal.jpg"}
-      %p газета «Галичина»
     .partner
       .partnerlogo
         %a{href: "http://radio.z-polus.info"}
@@ -370,7 +416,7 @@
         %p
           Ростислав КОНДРАТ
           %br/
-          %span Івано-Франківськ
+          %span Тисмениця
       %a.member{href: 'http://nplusk.com/uk/'}
         %img{alt: "jury_perun", src: "/images/jury_nazarenko.png"}
         %p
