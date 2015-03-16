@@ -313,7 +313,38 @@ h4{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    border: 1px solid black;
+    overflow: scroll;
 }
+
+    .terms__text h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: black;
+    }
+    .terms__text h3 {
+        margin: 10px 0;
+    }
+    .terms__text p {
+        margin-top: 10px;
+    }
+    .terms__text ol {
+        list-style: decimal outside;
+        margin-left: 18px;
+    }
+
+    .terms__text  ul.dash {
+        margin-left: 18px;
+    }
+    .terms__text  ul.dash > li {
+        position: relative;
+    }
+    .terms__text  ul.dash > li:before {
+        content: "–";
+        position: absolute;
+        margin-left: -18px;
+    }
+
 
 
 
