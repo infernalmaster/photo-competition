@@ -7,7 +7,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    'uploads/images'
+    "uploads/images/" +
+    "#{model.profile.name.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}_" +
+    "#{model.profile.surname.to_slug.normalize(transliterations: [:ukrainian, :russian]).to_s}"
   end
 
   def extension_white_list
