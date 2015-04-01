@@ -1,0 +1,130 @@
+.take-part
+  %button.btn.btn--take-apart.js-show-take-part-content Взяти учать
+
+  .wrapper.take-part-content.js-take-part-content
+    %ul.steps
+      %li.steps__item.js-take-part__nav-item
+        %span Умови конкурсу
+      %li.steps__item.js-take-part__nav-item
+        %span Анкета
+      %li.steps__item.js-take-part__nav-item
+        %span Завантаження фото
+      %li.steps__item.js-take-part__nav-item
+        %span Оплата
+
+    .terms.take-part__step.js-take-part__step
+      .terms__text
+        %h3 Концепція
+        %p Присвячуючи цей проект світлій пам’яті патріарха української фотографії Степана Григоровича Назаренка (12 травня 1932–24 березня 2006), прикарпатська фотографічна спільнота засвідчує своє намагання продовжити і розвинути найкращі традиції української фотопортретистики.
+        %p Очевидно, в першу чергу мова йтиме про академічний портрет, що передбачає відображення внутрішнього світу людини, її сутності, характеру і психології. Однак це не означає, що виставка матиме консервативне та ортодоксальне спрямування, і тому поза увагою не залишаться портретні роботи, виконані в репортажній манері, а також різноманітні експерименти, творчі та технічні пошуки авторів.
+        %h3 Умови конкурсу
+        %ol
+          %li До участі в конкурсі запрошуються всі фотографи України, а також персонально окремі автори із зарубіжжя.
+          %li Кожен автор може подати максимально п’ять робіт. Всі роботи із серій розглядатимуться як окремі.
+          %li Тільки jpg. без стискання з наступними параметрами: 8 BIT, RGB, 300dpi, мінімум 2400 px по довшій стороні.
+          %li Не допускається оформлення робіт у вигляді псевдопаспарту, полів, рамок. Зображення повинно бути навиліт.
+          %li Не будуть подані на розгляд журі роботи, які раніше вже експонувалися на міжнародних фотосалонах і національних фотовиставках в Україні.
+          %li
+            Плата за участь (благодійний внесок):
+            %ul.dash
+              %li для українських учасників — 120 грн;
+              %li для членів НСФХУ — 70 грн;
+              %li для зарубіжних учасників — 7 €.
+          %li
+            Журі:
+            %ul
+              %li Гліб ВИШЕСЛАВСЬКИЙ, кандидат мистецтвознавства, НСХУ, ІПСМ — Київ
+              %li Ігор ГАЙДАЙ, фотограф, «Гайдай студія» — Київ
+              %li Ростислав КОНДРАТ, AFIAP, AISF, Hon. FNPAS, НСФХУ, нфк «Колумб» — Івано-Франківськ
+              %li Андрій НАЗАРЕНКО, архітектор, «N+K» — Івано-Франківськ
+              %li Тарас ПЕРУН, НСФХУ, нфк «Позитив» — Чернівці
+          %li Нагороди виставки: медалі та дипломи ISF, медалі та дипломи Національної спілки фотохудожників України, призи та цінні подарунки від спонсорів та співорганізаторів і партнерів, спеціальні призи від родини Войцюків, ГО «Тепле місто», ГО «Форумс», газети «День», Amway.
+          %li Кожен учасник отримає ілюстрований каталог.
+          %li
+            Натискаючи «продовжити», ви погоджуєтеся з наступиними умовами:
+            %ul
+              %li Мені належить виключне право на використання перелічених фоторобіт та виключне право дозволяти використання даних творів*.
+              %li Згадані фотороботи не порушують прав фізичних осіб, які на них зображені.
+              %li
+                Стосовно зазначених робіт мною безкоштовно, безстроково та без умов надається оргкомітету П’ятої бієнале імені Степана НАЗАРЕНКА «ФОТОПОРТРЕТ 2015» дозвіл на:
+                %ol
+                  %li Публічну демонстрацію і публічний показ даних творів.
+                  %li Відтворення даних творі, як складову частину поліграфічної продукції П’ятої бієнале імені Степана НАЗАРЕНКА «ФОТОПОРТРЕТ 2015».
+                  %li Публікацію зазначених робіт у фотожурналах та інших періодичних виданнях (в тому числі й електронних), а також їхнє розміщення на електронних носіях та в інтернеті (із зазначенням авторства).
+              %li У випадку нагородження моїх робіт передаю їх оригінали у фонд оргкомітету П’ятої бієнале імені Степана НАЗАРЕНКА «ФОТОПОРТРЕТ 2015» зі збереженням за мною всіх авторських прав.
+        %p * У разі, якщо авторське право належить іншим особам, (у випадку співавторства, роботи на замовлення тощо) фотографія може бути представлена на виставці за умови письмової згоди зазначених осіб (співавторів або власників творів). В таких випадках просимо за додатковою інформацією звертатись до організаторів.
+
+      %button.btn.btn--forward.js-agree-with-right Я погоджуюсь з умовами, продовжити
+
+    .form.take-part__step.js-take-part__step
+      %form.js-profile-form{action: '/save_profile', method: 'post'}
+
+        %fieldset>
+          %legend ОБОВ’ЯЗКВО ДЛЯ ЗАПОВНЕННЯ
+
+          .inputfield
+            %label Ім’я
+            %input{type: "text", name: "name", class: "validate[required,maxSize[50]]"}
+          .inputfield
+            %label Прізвище
+            %input{type: "text", name: "surname", class: "validate[required,maxSize[50]]"}
+
+          .inputfield
+            %label Поштовий індекс
+            %input{type: "text", name: "zip_code", class: "validate[required,custom[zip]]"}
+          .inputfield
+            %label Населений пункт
+            %input{type: "text", name: "city", class: "validate[required,maxSize[50]]"}
+          .inputfield
+            %label Вулиця, будинок, квартира
+            %input{type: "text", name: "address", class: "validate[required,maxSize[50]]"}
+
+          .inputfield
+            %label Телефон
+            %input{type: "text", name: "phone", class: "validate[required,maxSize[50]]"}
+          .inputfield
+            %label E-mail
+            %input{type: "email", name: "email", class: "validate[required,custom[email],maxSize[50]]"}
+
+        %fieldset
+          %legend ДОДАТКОВО
+          .inputfield
+            %label Веб сайт
+            %input{type: "text", name: "site", class: "validate[maxSize[50]]"}
+          .inputfield
+            %label Фотографічні титули і приналежність до фотооб'єднань
+            %input{type: "text", name: "position", class: "validate[maxSize[100]]"}
+          .inputfield
+            %label Skype
+            %input{type: "text", name: "skype", class: "validate[maxSize[50]]"}
+          .inputfield
+            %label Facebook
+            %input{type: "text", name: "facebook", class: "validate[maxSize[100]]"}
+          .inputfield
+            %label.with-pointer
+              %input{type: "checkbox", name: "photo_alliance", value: '1'}
+              Член НСФХУ
+
+
+      %button.btn.btn--back.js-back-from-profile Назад
+      %button.btn.btn--forward.btn--forward-short.js-send-profile Продовжити
+
+    .upload.take-part__step.js-take-part__step
+      %form.js-images-form{action: '/upload', method: 'post', enctype: "multipart/form-data"}
+        .uploadwrap
+          %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; 300 dpi; мінімум 2400 px по довшій стороні.Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
+
+          - 5.times do |i|
+            .uploadform
+              %input.preview-image-input.js-img-input{name: "image#{i}", type: "file", accept: "image/jpeg", id: "image_upload#{i}", class: "validate[groupRequired[files]]"}
+              %label.preview{for: "image_upload#{i}"}
+                %span НАТИСНІТЬ ЩОБ ВИБРАТИ ФОТО З ЖОРСТКОГО ДИСКУ
+                %img.preview_image.js-img-preview
+              .inputfield
+                %label Назва
+                %input.js-img-title{name: "title#{i}", type: "text", class: "validate[maxSize[50]]"}
+
+      .clear
+
+      %button.btn.btn--back.js-back-from-photos Назад
+      %button.btn.btn--forward.btn--forward-short.js-send-photos Продовжити
