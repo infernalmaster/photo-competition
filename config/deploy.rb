@@ -14,7 +14,7 @@ role :db,  "178.62.231.23", :primary => true # This is where Rails migrations wi
 set :user, 'deploy'
 set :use_sudo, false
 set :bundle_without,  [:development, :test]
-set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
+# set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 
 set :deploy_to, '/home/deploy/photo'
 set :unicorn_conf, "#{deploy_to}/current/config/deploy.rb"
@@ -38,7 +38,7 @@ task :copy_settings, roles => :app do
 end
 after "deploy:update_code", :copy_settings
 
-set (:bundle_cmd) { "#{release_path}/bin/bundle" }
+# set (:bundle_cmd) { "#{release_path}/bin/bundle" }
 set :bundle_flags, "--deployment --quiet --binstubs"
 
 

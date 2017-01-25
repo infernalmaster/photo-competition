@@ -18,7 +18,7 @@ require 'pony'
 require 'sinatra' unless defined?(Sinatra)
 
 
-require './settings.rb'
+require_relative './settings.rb'
 
 configure do
   SiteConfig = OpenStruct.new(SETTINGS)
