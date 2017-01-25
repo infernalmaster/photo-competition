@@ -1,5 +1,4 @@
-require "bundler/capistrano"
-
+# require "bundler/capistrano"
 
 set :application, "photo"
 set :repository,  "https://github.com/infernalmaster/photo-competition.git"
@@ -34,12 +33,12 @@ task :copy_db, roles => :app do
 end
 task :copy_settings, roles => :app do
   app_db = "#{shared_path}/settings.rb"
-  run "ln -sf #{app_db} #{release_path}/settings.rb"
+  run "cp #{app_db} #{release_path}/settings.rb"
 end
 after "deploy:update_code", :copy_settings
 
 # set (:bundle_cmd) { "#{release_path}/bin/bundle" }
-set :bundle_flags, "--deployment --quiet --binstubs"
+# set :bundle_flags, "--deployment --quiet --binstubs"
 
 
 # - for unicorn - #
