@@ -16,7 +16,7 @@ set :bundle_without,  [:development, :test]
 # set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 
 set :deploy_to, '/home/deploy/photo'
-set :unicorn_conf, "#{deploy_to}/current/config/deploy.rb"
+set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; bundle exec unicorn -E production -Dc #{unicorn_conf})"
