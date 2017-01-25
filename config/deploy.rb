@@ -1,31 +1,30 @@
-require 'bundler/capistrano'
-set :application, "photo"
+require "bundler/capistrano"
 
-# настройка системы контроля версий и репозитария, по умолчанию - git, если используется иная система версий, нужно изменить значение scm
-set :scm, :git
-set :deploy_via, :remote_cache
+
+set :application, "photo"
 set :repository,  "https://github.com/infernalmaster/photo-competition.git"
 
-set :user, "hosting_syzspectroom"
+# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
+# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+
+role :web, "178.62.231.23"                          # Your HTTP server, Apache/etc
+role :app, "178.62.231.23"                          # This may be the same as your `Web` server
+role :db,  "178.62.231.23", :primary => true # This is where Rails migrations will run
+
+set :user, 'deploy'
 set :use_sudo, false
-set :deploy_to, "/home/hosting_syzspectroom/projects/photo"
-
-
-role :web, "hydrogen.locum.ru"   # Your HTTP server, Apache/etc
-role :app, "hydrogen.locum.ru"   # This may be the same as your `Web` server
-role :db,  "hydrogen.locum.ru", :primary => true # This is where Rails migrations will run
-
-
 set :bundle_without,  [:development, :test]
-set :rvm_ruby_string, "2.1.5"
-set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 
-set :unicorn, "/var/lib/gems/1.8/bin/unicorn"
-set :unicorn_conf, "/etc/unicorn/photo.syzspectroom.rb"
-set :unicorn_pid, "/var/run/unicorn/hosting_syzspectroom/photo.syzspectroom.pid"
+set :deploy_to, '/home/deploy/photo'
+set :unicorn_conf, "#{deploy_to}/current/config/deploy.rb"
+set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -E production -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; bundle exec unicorn -E production -Dc #{unicorn_conf})"
+
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 set :shared_children, shared_children + %w{public/uploads}
 
@@ -37,7 +36,11 @@ task :copy_settings, roles => :app do
   app_db = "#{shared_path}/settings.rb"
   run "ln -sf #{app_db} #{release_path}/settings.rb"
 end
-after "deploy:update_code", :copy_db, :copy_settings
+after "deploy:update_code", :copy_settings
+
+set (:bundle_cmd) { "#{release_path}/bin/bundle" }
+set :bundle_flags, "--deployment --quiet --binstubs"
+
 
 # - for unicorn - #
 namespace :deploy do
@@ -59,5 +62,21 @@ end
 
 desc "Use datamapper to call autoupgrade instead of db:migrate."
 task :migrate, :roles => :app do
- run "cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec rake db:migrate RACK_ENV=production"
+ run "cd #{deploy_to}/current; bundle exec rake db:migrate RACK_ENV=production"
 end
+
+
+# if you want to clean up old releases on each deploy uncomment this:
+# after "deploy:restart", "deploy:cleanup"
+
+# if you're still using the script/reaper helper you will need
+# these http://github.com/rails/irs_process_scripts
+
+# If you are using Passenger mod_rails uncomment this:
+# namespace :deploy do
+#   task :start do ; end
+#   task :stop do ; end
+#   task :restart, :roles => :app, :except => { :no_release => true } do
+#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+#   end
+# end
