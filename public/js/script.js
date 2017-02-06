@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     initHeaderWithMenu();
-    initJurySlider();
     initFileUploader();
     initTakePart();
 
@@ -33,42 +32,6 @@ function initHeaderWithMenu(){
             $menu.removeClass('dropshadow')
         }
     });
-}
-
-function initJurySlider() {
-    $('.prev').hide();
-
-    var nextslide = function () {
-        $('.next').hide('0', function () {
-            $('.prev').show('0', function () {
-            });
-        });
-        if (!$('.slider').is(':animated')) {
-            $('.slider').animate(
-                {left: -600}, 400);
-            $('.current').removeClass('current');
-            $('.ident').eq(1).addClass('current');
-        }
-    };
-    var previousslide = function () {
-        $('.prev').hide('0', function () {
-            $('.next').show('0', function () {
-            });
-
-        });
-        if (!$('.slider').is(':animated')) {
-            $('.slider').animate(
-                {left: 0}, 400);
-            $('.current').removeClass('current');
-            $('.ident').eq(0).addClass('current');
-        }
-
-    };
-
-    $('.prev').click(previousslide);
-    $('.next').click(nextslide);
-    $('.ident').eq(1).click(nextslide);
-    $('.ident').eq(0).click(previousslide);
 }
 
 

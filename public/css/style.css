@@ -140,7 +140,7 @@ h4{
         }
             .slide_text h1,.slide_text h2,.slide_text h4{
                 text-align: right;
-                float: right;
+                /*float: right;*/
                 padding-top: 20px;
             }
 
@@ -591,8 +591,8 @@ input[type="text"]:focus, input[type="email"]:focus {
 }
 .jury{
 	width: 100%;
-	height: 500px;
 	background: #2d2a2f;
+  clear: both;
 }
 .jury h3{
 	position: relative;
@@ -601,14 +601,23 @@ input[type="text"]:focus, input[type="email"]:focus {
 	padding-top: 40px;
 	text-transform: uppercase;
 }
-
+.block {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 40px;
+}
+.content {
+  margin-left: 52px;
+  width: 440px;
+}
+.content p {
+  color: #fff;
+}
 .member{
-	float: left;
-	margin: 0 0px 0 64px;
   text-decoration: none;
+  margin-right: auto;
 }
 .member img{
-
 	 -moz-border-radius: 200px;
     -webkit-border-radius: 200px;
     -o-border-radius: 200px;
@@ -616,53 +625,17 @@ input[type="text"]:focus, input[type="email"]:focus {
     border: 5px solid #403d42;
 }
 .jury_wrap{
-	width: 960px;
-	overflow: hidden;
+	width: 690px;
 	position: relative;
 	margin: auto;
 }
-.slider{
-	position: relative;
-	width: 10000px;
-	text-align: center;
-	padding-top: 35px;
-}
-.prev{
-	background: url('/images/arrows_sprite.png') no-repeat -40px 0;
-	width: 18px;
-	height: 29px;
-	z-index: 3;
-	opacity: 0.5;
-	float: left;
+/*.content {
+  margin-left: 52px;
+}*/
 
-
-}
-.next{
-	background: url('/images/arrows_sprite.png') no-repeat -116px 0; width: 18px; height: 29px;
-	opacity: 0.5;
-	float: right;
-
-}
-.next,.prev{
-    -webkit-transition: opacity 0.1s ease-out 0.1s;
-     -moz-transition: opacity 0.1s ease-out 0.1s;
-     -o-transition:opacity  0.1s ease-out 0.1s;
-     transition: opacity 0.1s ease-out 0.1s;
-     position: relative;
-     top: 140px;
-    cursor: pointer;
-}
-.prev:hover, .next:hover{
-	opacity: 1;
-};
-.slider.member:first-child{
-    padding-left: 64px;
-}
-.jury p{
+.jury p.title{
 	font-weight: 700;
 	font-size: 18px;
-	color: #ffffff;
-	padding-top: 20px;
 }
 .jury span{
 	font-weight: 400;
