@@ -31,6 +31,12 @@ h4{
 
 }
 
+h1.photo_logo {
+  background: url('/images/logo-text.svg') no-repeat center;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .wrapper {
     position: relative;
     width: 960px;
@@ -573,8 +579,6 @@ input[type="text"]:focus, input[type="email"]:focus {
 	padding-bottom: 80px;
 	padding-left: 20px;
 	text-align: center;
-	display: table-cell;
-	position: relative;
 	vertical-align: bottom;
 
 }
@@ -582,7 +586,11 @@ input[type="text"]:focus, input[type="email"]:focus {
 .partnerlist{
 	padding-top: 30px;
 	position: relative;
-
+}
+.partnerlist .parterline {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .fix{
