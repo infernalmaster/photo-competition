@@ -574,13 +574,12 @@ input[type="text"]:focus, input[type="email"]:focus {
 }
 
 .partner{
-	
+	align-items: center;
 	padding: 0 10px 80px;
 	text-align: center;
 	vertical-align: bottom;
-
-
 }
+
 .partnerlist{
 	padding-top: 30px;
   display: flex;
