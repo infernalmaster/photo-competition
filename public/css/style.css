@@ -574,19 +574,20 @@ input[type="text"]:focus, input[type="email"]:focus {
 }
 
 .partner{
-    width: 220px;
-	height: 90px;
-	padding-bottom: 80px;
-	padding-left: 20px;
+	
+	padding: 0 10px 80px;
 	text-align: center;
 	vertical-align: bottom;
 
-}
 
+}
 .partnerlist{
 	padding-top: 30px;
-	position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 .partnerlist .parterline {
   display: flex;
   justify-content: center;
