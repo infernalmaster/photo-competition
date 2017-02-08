@@ -35,7 +35,7 @@ task :copy_settings, roles => :app do
   app_db = "#{shared_path}/settings.rb"
   run "cp #{app_db} #{release_path}/settings.rb"
 end
-after "deploy:update_code", :copy_settings
+after "deploy:update_code", :copy_settings, :copy_db
 
 # set (:bundle_cmd) { "#{release_path}/bin/bundle" }
 # set :bundle_flags, "--deployment --quiet --binstubs"
