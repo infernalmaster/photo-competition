@@ -32,7 +32,7 @@ h4{
 }
 
 h1.photo_logo {
-  background: url('/images/logo-text.svg') no-repeat center;
+  background: url('/images/logo-text.svg') no-repeat center right;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
