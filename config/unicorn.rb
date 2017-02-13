@@ -6,7 +6,7 @@ UNICORN_PID = "#{DEPLOY_TO}/shared/pids/unicorn.pid"
 preload_app true
 worker_processes 2
 
-timeout 30
+timeout 600
 
 # Location of the socket, to appear in an NGINX upstream configuration
 listen "#{DEPLOY_TO}/shared/unicorn.socket", backlog: 64
