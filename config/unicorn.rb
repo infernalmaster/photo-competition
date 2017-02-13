@@ -4,7 +4,7 @@ CURRENT = "#{DEPLOY_TO}/current"
 UNICORN_PID = "#{DEPLOY_TO}/shared/pids/unicorn.pid"
 # Preload application code before forking worker processes.
 preload_app true
-worker_processes 4
+worker_processes 2
 
 timeout 30
 
