@@ -712,9 +712,8 @@ padding-right: 20px;
 
 
 .award, .medal{
-	float: left;
-	position: relative;
-	width: 220px;
+
+	width: 265px;
 	padding: 30px 10px 20px 10px;
 	text-align: center;
 	font-weight: 400;
@@ -725,16 +724,18 @@ padding-right: 20px;
   position: relative;
   padding-bottom: 30px;
 }
+.awards_container, .medals_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .awards{
 	position: relative;
 	padding-bottom: 30px;
 	height: 750px;
-  clear: both;
 }
-.award img {
-	height: 200px;
-	width: 200px;
-}
+
 .medal img {
   height: 130px;
   width: 130px;
