@@ -1,0 +1,22 @@
+FROM ruby:2.5.1-alpine3.7
+
+RUN apk add --update --no-cache \
+    build-base \
+    git \
+    tzdata
+
+ENV RACK_ENV=production
+
+# RUN addgroup -g 1000 -S app && adduser -u 1000 -S app -G app
+# USER app
+
+WORKDIR /project
+
+# COPY --chown=app:app . .
+COPY . .
+
+RUN bundle install
+
+
+EXPOSE 3000
+CMD ["bundle", "exec", "puma", "-C", "puma.rb"]

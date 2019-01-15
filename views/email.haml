@@ -15,6 +15,8 @@
       Адреса:
       = @profile.zip_code
       ,
+      = @profile.region
+      ,
       = @profile.city
       ,
       = @profile.address
@@ -45,7 +47,7 @@
       = @status
 
     - @profile.photos.each do |photo|
-      %a{href: "#{SiteConfig.url_base}#{photo.file.url}"}
+      %a{href: "#{SiteConfig.url_base}/#{photo.file.url}"}
         %p
-          %img{src: "#{SiteConfig.url_base}#{photo.file.url}", style: "max-height: 300px; max-width: 300px"}
+          %img{src: "#{SiteConfig.url_base}/#{photo.file.url}", style: "max-height: 300px; max-width: 300px"}
         %p= photo.title

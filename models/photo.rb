@@ -1,10 +1,12 @@
-require 'image_uploader'
+require_relative 'image_uploader'
+
 class Photo
-  include DataMapper::Resource
-  property :id,          Serial
-  property :title,       String
-  property :position,    Integer
-  belongs_to :profile  # defaults to :required => true
+  include Mongoid::Document
+
+  field :title, type: String
+  field :position, type: Integer
+
+  belongs_to :profile
 
   validates_presence_of :file, :position
 

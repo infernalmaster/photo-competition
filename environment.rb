@@ -1,34 +1,23 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'dm-core'
-require 'dm-timestamps'
-require 'dm-validations'
-require 'dm-aggregates'
-require 'dm-migrations'
-require 'dm-constraints'
+require 'mongoid'
 require 'haml'
 require 'ostruct'
 require 'carrierwave'
-require 'carrierwave/datamapper'
-require 'rmagick'
+require 'carrierwave/mongoid'
+# require 'rmagick'
 require 'json'
 require 'babosa'
 require 'pony'
 
 require 'sinatra' unless defined?(Sinatra)
 
-
-require_relative './settings.rb'
+require_relative 'settings.rb'
 
 configure do
   SiteConfig = OpenStruct.new(SETTINGS)
 
   # load models
-  $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
-  Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib| require File.basename(lib, '.*') }
+  $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/models")
+  Dir.glob("#{File.dirname(__FILE__)}/models/*.rb") { |model| require File.basename(model, '.*') }
 
-  DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{File.expand_path(File.dirname(__FILE__))}/#{Sinatra::Base.environment}.db"))
-  DataMapper.finalize #check models
-  #DataMapper.auto_migrate! # drop and recreate all db tables
-  #DataMapper.auto_upgrade!  # just add new columns and tables
+  Mongoid.load!("#{File.dirname(__FILE__)}/config/mongoid.yml")
 end

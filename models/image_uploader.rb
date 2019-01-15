@@ -1,4 +1,4 @@
-require 'rmagick'
+# require 'rmagick'
 
 class ImageUploader < CarrierWave::Uploader::Base
   # attr_reader :geometry

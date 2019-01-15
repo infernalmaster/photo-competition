@@ -1,0 +1,39 @@
+version: '3'
+volumes:
+  # photo_uploads:
+  #   external: false
+  mongo_data:
+    external: false
+services:
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./DockerFile
+    ports:
+      - 80:3000
+    volumes:
+      # all uploads will be inside /photo_uploads on root machine
+      - /photo_uploads:/project/public/uploads
+    depends_on:
+      - mongodb
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
+  mongodb:
+    restart: always
+    image: mongo:4.0.2
+    # mongo without auth, so don't do it
+    # ports:
+    #   - 27017:27017
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - mongo_data:/data/db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"

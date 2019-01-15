@@ -1,9 +1,7 @@
 .take-part
-  %button.btn.btn--take-apart.js-show-take-part-content Взяти учать
-
-  .wrapper.take-part-content.js-take-part-content
+  .wrapper.take-part-content.js-take-part-content.active
     %ul.steps
-      %li.steps__item.js-take-part__nav-item
+      %li.steps__item.js-take-part__nav-item.active
         %span Умови конкурсу
       %li.steps__item.js-take-part__nav-item
         %span Анкета
@@ -12,7 +10,7 @@
       %li.steps__item.js-take-part__nav-item
         %span Оплата
 
-    .terms.take-part__step.js-take-part__step
+    .terms.take-part__step.js-take-part__step.active
       .terms__text
         %h3 Концепція
         %p Присвячуючи цей проект світлій пам’яті патріарха української фотографії Степана Григоровича Назаренка (12 травня 1932&ndash;24 березня 2006), прикарпатська фотографічна спільнота засвідчує своє намагання продовжити і розвинути найкращі традиції української фотопортретистики.
@@ -72,6 +70,35 @@
           .inputfield
             %label Поштовий індекс
             %input{type: "text", name: "zip_code", class: "validate[required,custom[zip]]"}
+          .inputfield
+            %label Область
+            %select{name: "region", class: "validate[required]"}
+              %option
+              %option{value: "Автономна республіка Крим"} Автономна республіка Крим
+              %option{value: "Вінницька область"} Вінницька область
+              %option{value: "Волинська область"} Волинська область
+              %option{value: "Дніпропетровська область"} Дніпропетровська область
+              %option{value: "Донецька область"} Донецька область
+              %option{value: "Житомирська область"} Житомирська область
+              %option{value: "Закарпатська область"} Закарпатська область
+              %option{value: "Запорізька область"} Запорізька область
+              %option{value: "Івано-Франківська область"} Івано-Франківська область
+              %option{value: "Київська область"} Київська область
+              %option{value: "Кіровоградська область"} Кіровоградська область
+              %option{value: "Луганська область"} Луганська область
+              %option{value: "Львівська область"} Львівська область
+              %option{value: "Миколаївська область"} Миколаївська область
+              %option{value: "Одеська область"} Одеська область
+              %option{value: "Полтавська область"} Полтавська область
+              %option{value: "Рівненська область"} Рівненська область
+              %option{value: "Сумська область"} Сумська область
+              %option{value: "Тернопільська область"} Тернопільська область
+              %option{value: "Харківська область"} Харківська область
+              %option{value: "Херсонська область"} Херсонська область
+              %option{value: "Хмельницька область"} Хмельницька область
+              %option{value: "Черкаська область"} Черкаська область
+              %option{value: "Чернівецька область"} Чернівецька область
+              %option{value: "Чернігівська область"} Чернігівська область
           .inputfield
             %label Населений пункт
             %input{type: "text", name: "city", class: "validate[required,maxSize[50]]"}

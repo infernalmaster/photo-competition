@@ -1,11 +1,10 @@
 body {
     position: relative;
-    font-family: 'Roboto',sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
     font-weight: 300;
 }
 
 h1{
-	font-family: 'Roboto Slab',sans-serif;
 	font-size: 100px;
 	color: #ffffff;
 	text-shadow: 4px 4px 0 #000;
@@ -18,7 +17,6 @@ h2{
 	color: #ffffff;
 }
 h3{
-	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 40px;
 	color: #ffffff;
@@ -74,7 +72,6 @@ h1.photo_logo {
         }
             nav li {
                 display: inline;
-                font-family: 'Roboto Condensed', sans-serif;
                 font-weight: 700;
                 font-size: 14px;
                 padding: 0 5px 12px 5px;
@@ -321,6 +318,7 @@ h1.photo_logo {
     -webkit-box-sizing: border-box;
     border: 1px solid black;
     overflow: scroll;
+    font-weight: 400;
 }
 
     .terms__text h3 {
@@ -374,7 +372,6 @@ h1.photo_logo {
 	padding-top: 20px;
 }
 .inputfield label {
-	font-family: 'Roboto Condensed',sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	display: block;
@@ -470,7 +467,6 @@ input[type="text"]:focus, input[type="email"]:focus {
 
     .done p {
         position: relative;
-        font-family: 'Roboto Slab',sans-serif;
         font-size: 60px;
         color: #237935;
         display: inline;
@@ -733,7 +729,7 @@ padding-right: 20px;
 .awards{
 	position: relative;
 	padding-bottom: 30px;
-	
+
 }
 
 .medal img {
