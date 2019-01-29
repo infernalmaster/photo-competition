@@ -1,0 +1,22 @@
+SETTINGS = {
+  # for email photo links and privat redirect
+  url_base: 'http://entryform.photoportrait.org.ua',
+
+  main_site_url: 'http://photoportrait.org.ua',
+
+  pb_public_key: 'xxx',
+  pb_private_key: 'xxx',
+  sandbox: 1,
+
+  max_photos: 3,
+
+  smtp_server: 'smtp.gmail.com',
+  smtp_port: 587,
+  smtp_user_name: 'xxx',
+  smtp_password: 'xxx',
+
+  smtp_from: 'registration@gmail.com',
+  smtp_to: 'photoportraitcontest@gmail.com',
+
+  smtp_domain: 'photoportrait.org.ua'
+}
