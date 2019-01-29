@@ -6,3 +6,4 @@ log/*
 *.swp
 *.swo
 public/uploads/*
+settings.rb

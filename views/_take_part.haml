@@ -141,7 +141,7 @@
         .uploadwrap
           %p Тільки *.JPEG без стискання з наступними параметрами:8 BIT; RGB; мінімум 2400 px по довшій стороні. Не допускаєтся оформлення у вигляді полів,псевдопаспарту, рамок, тощо. Максимум 5 фото.
 
-          - 5.times do |i|
+          - SiteConfig.max_photos.times do |i|
             .uploadform
               %input.preview-image-input.js-img-input{name: "image#{i}", type: "file", accept: "image/jpeg", id: "image_upload#{i}", class: "validate[groupRequired[files]]"}
               %label.preview{for: "image_upload#{i}"}
