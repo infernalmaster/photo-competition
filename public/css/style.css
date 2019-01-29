@@ -389,6 +389,13 @@ input[type="text"], input[type="email"] {
 input[type="text"]:focus, input[type="email"]:focus {
 	border: 3px solid #8f7726;
 }
+select {
+  padding: 10px 16px;
+  height: 48px;
+  width: 370px;
+  border-radius: 0px;
+  border: 3px solid #bdbdbd;
+}
 
 
 
