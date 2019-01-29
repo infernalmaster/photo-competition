@@ -33,6 +33,12 @@ Add your specs in <tt>spec</tt>; just require <tt>spec_helper.rb</tt> to pre-con
 
 == Deploy
 
+  Run it first time to provision server:
+
+  docker-machine create --driver digitalocean --digitalocean-access-token=xx --digitalocean-size=1gb --digitalocean-region=fra1 nazarenko
+
+  Then:
+
   eval (docker-machine env nazarenko)
   docker-compose build app
   docker-compose up --no-deps -d app
