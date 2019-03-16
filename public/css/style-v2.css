@@ -1021,3 +1021,8 @@ body.rtl .formError .formErrorArrow {
 .center {
   text-align: center
 }
+.use-ua {
+  margin-bottom: 18px;
+  font-weight: normal;
+  color: #666666;
+}
