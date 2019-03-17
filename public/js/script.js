@@ -1,67 +1,21 @@
 $(document).ready(function() {
-  initFileUploader();
   initTakePart();
 });
 
-function initFileUploader() {
-  // fileupload
-  window.fileSelected = function() {
-    var file = document.getElementById("fileToUpload").files[0];
-    if (file) {
-      var fileSize = 0;
-      if (file.size > 1024 * 1024)
-        fileSize =
-          (Math.round((file.size * 100) / (1024 * 1024)) / 100).toString() +
-          "MB";
-      else
-        fileSize =
-          (Math.round((file.size * 100) / 1024) / 100).toString() + "KB";
-
-      document.getElementById("fileName").innerHTML = "Name: " + file.name;
-      document.getElementById("fileSize").innerHTML = "Size: " + fileSize;
-      document.getElementById("fileType").innerHTML = "Type: " + file.type;
-    }
-  };
-
-  window.uploadFile = function() {
-    var fd = new FormData();
-    fd.append("image", document.getElementById("fileToUpload").files[0]);
-    var xhr = new XMLHttpRequest();
-    xhr.upload.addEventListener("progress", uploadProgress, false);
-    xhr.addEventListener("load", uploadComplete, false);
-    xhr.addEventListener("error", uploadFailed, false);
-    xhr.addEventListener("abort", uploadCanceled, false);
-    xhr.open("POST", "/upload");
-    xhr.send(fd);
-  };
-
-  function uploadProgress(evt) {
-    if (evt.lengthComputable) {
-      var percentComplete = Math.round((evt.loaded * 100) / evt.total);
-      document.getElementById("progressNumber").innerHTML =
-        percentComplete.toString() + "%";
-    } else {
-      document.getElementById("progressNumber").innerHTML = "unable to compute";
-    }
-  }
-
-  function uploadComplete(evt) {
-    /* This event is raised when the server send back a response */
-    alert(evt.target.responseText);
-  }
-
-  function uploadFailed(evt) {
-    alert("There was an error attempting to upload the file.");
-  }
-
-  function uploadCanceled(evt) {
-    alert(
-      "The upload has been canceled by the user or the browser dropped the connection."
-    );
-  }
-}
-
 function initTakePart() {
+  var $prg = $(".prg");
+  var prgXHR = function() {
+    var xhr = $.ajaxSettings.xhr();
+    xhr.upload.onprogress = function(e) {
+      var percents = Math.floor((e.loaded / e.total) * 100) + "%";
+      $prg.show().text(percents);
+    };
+    return xhr;
+  };
+  var prgHide = function() {
+    $prg.hide();
+  };
+
   var $showTakePartContent = $(".js-show-take-part-content");
 
   var $takePartContent = $(".js-take-part-content");
@@ -137,9 +91,9 @@ function initTakePart() {
   });
 
   // just for debug
-  // $showTakePartContent.addClass('active');
-  // $takePartContent.addClass('active');
-  // activateStep(1);
+  // $showTakePartContent.addClass("active");
+  // $takePartContent.addClass("active");
+  // activateStep(2);
 
   $(".js-img-input").change(function() {
     if (!this.files || !this.files[0]) {
@@ -156,16 +110,7 @@ function initTakePart() {
 
     reader.onload = function(_file) {
       image.onload = function() {
-        var w = this.width;
-
-        var h = this.height;
-
-        var t = file.type;
-        // ext only: // file.type.split('/')[1],
-
         var n = file.name;
-
-        var s = ~~(file.size / 1024) + "KB";
 
         if (file.type !== "image/jpeg") {
           return alert("тільки файли з розширенням jpeg aбо jpg");
@@ -196,10 +141,6 @@ function initTakePart() {
 
   var $photosFormBtn = $(".js-send-photos");
   $photosFormBtn.click(function() {
-    // if ($imageForm.validationEngine('validate',  {promptPosition : "topLeft", scrollOffset: 220})) {
-    //    $imageForm.submit();
-    // }
-
     if (
       $imageForm.validationEngine("validate", {
         promptPosition: "topLeft",
@@ -213,14 +154,17 @@ function initTakePart() {
         type: "POST",
         data: new FormData($imageForm[0]),
         processData: false,
-        contentType: false
+        contentType: false,
+        xhr: prgXHR
       }).then(
         function(response) {
+          prgHide();
           document.location.href = response;
         },
         function(xhr) {
+          prgHide();
           $photosFormBtn.prop("disabled", false);
-          alert("Сталася помилка: " + xhr.responseText);
+          alert("Сталася помилка: " + xhr.responseText + ". Спробуйте ще раз.");
         }
       );
     }
