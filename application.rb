@@ -100,6 +100,23 @@ post '/payment/:id' do
         domain:                SiteConfig.smtp_domain # the HELO domain provided by the client to the server
       }
     )
+
+    Pony.mail(
+      from: SiteConfig.smtp_from,
+      to: @profile.email,
+      subject: "Фотопортрет. Дякуємо за реєстрацію",
+      html_body: haml(:email_for_user, layout: false),
+      via: :smtp,
+      via_options: {
+        address:               SiteConfig.smtp_server,
+        port:                  SiteConfig.smtp_port,
+        enable_starttls_auto:  true,
+        user_name:             SiteConfig.smtp_user_name,
+        password:              SiteConfig.smtp_password,
+        authentication:        :plain, # :plain, :login, :cram_md5, no auth by default
+        domain:                SiteConfig.smtp_domain # the HELO domain provided by the client to the server
+      }
+    )
   end
 end
 
